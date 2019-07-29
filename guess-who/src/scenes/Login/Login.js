@@ -35,6 +35,7 @@ const Login = () => {
                 type="username"
                 id="username"
                 name="username"
+                placeholder="username"
                 value={formState.username}
                 onChange={handleChanges}
             />
@@ -43,12 +44,23 @@ const Login = () => {
                 type="password"
                 id="password"
                 name="password"
+                placeholder="password"
                 value={formState.password}
                 onChange={handleChanges}
+                autoComplete="off"
             />
             <button>Login</button>
         </form>
     );
 };
 
-export default Login;
+const mapStateToProps = state => {
+    return {
+        ...state
+    }
+}
+
+export default connect(
+    mapStateToProps,
+    {}
+)(Login);
