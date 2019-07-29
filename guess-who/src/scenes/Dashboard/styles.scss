@@ -1,0 +1,93 @@
+.App {
+    background-color: #23acf4;
+    // background-image: image('./images/Wallpaper.png')
+}
+
+.header {
+    display: flex;
+    justify-content: space-around;
+    padding-top: 10px;
+
+    h1{
+        margin: 0;
+    }
+    
+    img {
+        width: 40px;
+        height: 40px;
+    }
+}
+
+.body{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+
+    button{
+        display: flex;
+        justify-content: center;
+        padding: 20px;
+        margin: 5px;
+        width: 75%;
+        border-radius: 80px;
+        font-size: 15px;
+        font-weight: 800;
+        font-family: arial;
+        background-color: white;
+        align-items: center;
+   
+
+        img{
+            padding: 0 10px 0;
+            width: 20px;
+            height: 20px;
+        }
+
+    }
+
+    .blueButton {
+        border: 2px solid blue;
+    
+    }
+    .greenButton {
+        border: 2px solid green;
+    
+    }
+    .yellowButton {
+        border: 2px solid gold;
+     
+    }
+    .redButton {
+        border: 2px solid red;
+       
+    }
+    .littleRedButton {
+        background-color: darkred;
+        border: none;
+        color: white;
+        width: 50%;
+        height: 10%;
+        padding: 10px;
+        font-size: 12px;
+        
+        img{
+            width: 15px;
+            height: 15px;
+        }
+    }
+    .purpleButton {
+        border: 2px solid purple;
+        padding: 10px;
+        width: 60%;
+      
+    }
+
+    p{
+        font-size: 12px;
+        font-weight: 500;
+        width: 50%;
+    }
+}
+
