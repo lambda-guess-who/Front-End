@@ -4,7 +4,7 @@ import './App.scss';
 function App() {
   return (
     <div className="App">
-      Guess Who - change
+      Guess Who
     </div>
   );
 }
