@@ -9,6 +9,7 @@ export const SIGNUP_FAILURE = "SIGNUP_FAILURE";
 
 export const signup = user => dispatch => {
     dispatch({ type: LOGIN_START })
+    console.log(user);
     axiosWithAuth()
         .post(SIGNUP_ENDPOINT, user)
         .then(res => {
