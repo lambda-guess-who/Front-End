@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 import { connect } from 'react-redux';
 
+import { signup } from '../../actions';
+
 const Signup = props => {
     
-    // const [username, setUsername] = useState("");
-    // const [password, setPassword] = useState("");
     const [formState, setFormState] = useState({
         username: "",
         password: "",
@@ -21,6 +21,7 @@ const Signup = props => {
 
     const submit = e => {
         e.preventDefault();
+        props.signup(formState)
         setFormState({
             username: "",
             password: ""
@@ -57,11 +58,12 @@ const Signup = props => {
 
 const mapStateToProps = state => {
     return {
-        ...state
+        ...state,
+        token: state.token,
     }
 }
 
 export default connect(
     mapStateToProps,
-    {}
+    { signup }
 )(Signup);
