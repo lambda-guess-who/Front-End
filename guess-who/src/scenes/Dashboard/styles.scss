@@ -30,7 +30,7 @@
         justify-content: center;
         padding: 20px;
         margin: 5px;
-        width: 75%;
+        width: 76%;
         border-radius: 80px;
         font-size: 15px;
         font-weight: 800;
@@ -48,29 +48,35 @@
     }
 
     .blueButton {
-        border: 2px solid blue;
+        border: 3px solid blue;
     
     }
     .greenButton {
-        border: 2px solid green;
-    
+        background-color: lightgray;
+        border: 3px solid green;
+        opacity: 0.7;
     }
     .yellowButton {
-        border: 2px solid gold;
-     
+        background-color: lightgray;
+        border: 3px solid gold;
+        opacity: 0.7;
     }
     .redButton {
-        border: 2px solid red;
+        background-color: lightgray;
+        border: 3px solid red;
+        opacity: 0.7;
+        
        
     }
     .littleRedButton {
         background-color: darkred;
         border: none;
         color: white;
-        width: 50%;
+        width: 40%;
         height: 10%;
         padding: 10px;
-        font-size: 12px;
+        font-size: 10px;
+        opacity: 0.7;
         
         img{
             width: 15px;
@@ -78,9 +84,12 @@
         }
     }
     .purpleButton {
+        display: flex;
+        justify-content: space-between;
+        margin-top: 10px;
         border: 2px solid purple;
         padding: 10px;
-        width: 60%;
+        width: 50%;
       
     }
 
