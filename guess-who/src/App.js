@@ -1,11 +1,6 @@
 import React from 'react';
-<<<<<<< HEAD
-import { Route } from 'react-router-dom';
-=======
 import { Route, Link } from 'react-router-dom';
->>>>>>> 816d780dc9822f787dfff17d38851c749eef1e3f
 import { PrivateRoute } from './PrivateRoute';
-import Dashboard from './scenes/Dashboard/Dashboard';
 
 
 import Login from './scenes/Login/Login';
@@ -20,9 +15,7 @@ import './index.scss';
 function App() {
   return (
     <div className="App">
-<<<<<<< HEAD
       <Dashboard />
-=======
       Guess Who
       <div className="tempLinks">
         <Link to="/">Login</Link>
@@ -41,7 +34,6 @@ function App() {
       {/* <PrivateRoute path="/settings" component={Settings} /> */}
       <Route path="/game" component={Game} />
       {/* <PrivateRoute path="/game" component={Game} /> */}
->>>>>>> 816d780dc9822f787dfff17d38851c749eef1e3f
     </div>
   );
 }
