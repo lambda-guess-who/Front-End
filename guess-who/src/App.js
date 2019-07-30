@@ -1,6 +1,7 @@
 import React from 'react';
 import { Route, Link } from 'react-router-dom';
 import { PrivateRoute } from './PrivateRoute';
+import Game from './scenes/Game/Game.js';
 
 import Login from './scenes/Login/Login';
 import Signup from './scenes/Login/Signup';
@@ -21,7 +22,6 @@ function App() {
         <Link to="/settings">settings</Link>
         <Link to="/game">game</Link>
       </div>
-
       <Route exact path="/" component={Login} />
       {/* <Route path="/signup" component={Signup} /> */}
       <Route path="/signup" component={Signup} />
@@ -32,7 +32,6 @@ function App() {
       {/* <PrivateRoute path="/settings" component={Settings} /> */}
       <Route path="/game" component={Game} />
       {/* <PrivateRoute path="/game" component={Game} /> */}
-
     </div>
   );
 }
