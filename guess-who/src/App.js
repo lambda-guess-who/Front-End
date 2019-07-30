@@ -15,20 +15,23 @@ function App() {
   return (
     <div className="App">
       Guess Who
-<<<<<<< HEAD
-      <Game />
-=======
-      <Link to="/">Login</Link>
-      <Link to="/signup">Sign Up</Link>
-      <Link to="/dashboard">dashboard</Link>
+      <div className="tempLinks">
+        <Link to="/">Login</Link>
+        <Link to="/signup">Sign Up</Link>
+        <Link to="/dashboard">dashboard</Link>
+        <Link to="/settings">settings</Link>
+        <Link to="/game">game</Link>
+      </div>
       <Route exact path="/" component={Login} />
+      {/* <Route path="/signup" component={Signup} /> */}
       <Route path="/signup" component={Signup} />
-      {/* <Route path="/dashboard" component={Dashboard} /> */}
-      <PrivateRoute path="/dashboard" component={Dashboard} />
-      <PrivateRoute path="/settings" component={Settings} />
-      <PrivateRoute path="/game" component={Game} />
 
->>>>>>> 7e5af744df896f40b32f2462273b6367ca0b37b2
+      <Route path="/dashboard" component={Dashboard} />
+      {/* <PrivateRoute path="/dashboard" component={Dashboard} /> */}
+      <Route path="/settings" component={Settings} />
+      {/* <PrivateRoute path="/settings" component={Settings} /> */}
+      <Route path="/game" component={Game} />
+      {/* <PrivateRoute path="/game" component={Game} /> */}
     </div>
   );
 }
