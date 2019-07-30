@@ -17,7 +17,7 @@ const Game = props => {
     }
     useEffect(() => {
         fetchTwitter()
-    }, [])
+    }, [props.tweet])
 
     return (
         <div className="wrapper">
