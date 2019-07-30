@@ -1,2 +1,39 @@
+@import '../../scss/mixins.scss';
+@import '../../scss/variables.scss';
 
-@import "../../scss/mixins.scss";
+.settings-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+    color: white;
+}
+
+.switch-container {
+    border-radius: 80px;
+    border: 3px solid white;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+    padding: 10px;
+    margin: 10px;
+    width: 76%;
+    border-radius: 80px;
+    font-size: 15px;
+    font-weight: 800;
+    font-family: arial;
+    align-items: center;
+    color: white;
+}
+
+.buttons{
+    @include buttons;
+    width: 55%;
+    background-color: transparent;
+    box-shadow: none;
+    border: 3px solid white;
+    color: white;
+    justify-content: space-around;
+}
+

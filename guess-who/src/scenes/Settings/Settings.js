@@ -18,12 +18,12 @@ const Settings = props => {
         <div className="settings-container">
             <h1>Settings</h1>
             <SettingsSwitches />
-            <div className="buttons">
-                <Icon>attach_file</Icon> User Agreement 
-            </div>
-            <div className="buttons">
-                <Icon></Icon>Contact Us
-            </div>
+            <button className="buttons">
+                <Icon>attach_file</Icon> <h3>User Agreement</h3>
+            </button>
+            <button className="buttons">
+                <img src="Twitter_Social_Icon_Square_Color.png" alt=""/> <h3>Contact Us</h3>
+                </button>
             <button onClick={logout}>logout</button>
         </div>
     );
