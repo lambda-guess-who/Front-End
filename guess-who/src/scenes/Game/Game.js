@@ -20,10 +20,18 @@ const Game = props => {
     }, [props.tweet])
 
     return (
-        <div className="game-container">
-            <Tweet />
-            <Tweeters />
-            {/* <button onClick={fetchTwitter}>Get Twitter Test</button> */}
+        <div className="wrapper">
+            <div className="game-container">
+                <div className="category-title">
+                    <h1>Category</h1>
+                    <p className="category">Presidential Candidates</p>
+                </div>
+                <Tweet />
+                <Tweeters />
+                <div className="twitter-btn">
+                    <button onClick={fetchTwitter}>Get Twitter Test</button>
+                </div>
+            </div>
         </div>
     )
 }

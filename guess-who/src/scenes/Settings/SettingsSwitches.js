@@ -1,11 +1,7 @@
 
 import React from 'react';
-import { withStyles } from '@material-ui/core/styles';
-import FormGroup from '@material-ui/core/FormGroup';
-import Switch from '@material-ui/core/Switch';
-import Grid from '@material-ui/core/Grid';
-import Typography from '@material-ui/core/Typography';
-import Icon from '@material-ui/core/Icon';
+import { Icon, Typography, Grid, Switch, FormGroup, withStyles } from '@material-ui/core';
+import "./settings.scss";
 
 
 const IOSSwitch = withStyles(theme => ({
@@ -71,12 +67,17 @@ function SettingsSwitches() {
     setState({ ...state, [name]: event.target.checked });
   };
 
+  const formStyle = {
+    width: `100%`,
+    
+  };
+
   return (
-    <FormGroup>
-      <Typography component="div">
+    <FormGroup style={formStyle}>
+      <div className="switch-container">
         <Grid component="label" container alignItems="center" spacing={1}>
           <Grid item><Icon>music_note</Icon></Grid>
-          <Grid item>Music</Grid>
+          <Grid item><h2>Music</h2></Grid>
           <Grid item>
             <IOSSwitch
               checked={state.checkedMusic}
@@ -85,11 +86,11 @@ function SettingsSwitches() {
             />
           </Grid>
         </Grid>
-      </Typography>
-      <Typography component="div">
+      </div>
+      <div className="switch-container">
         <Grid component="label" container alignItems="center" spacing={1}>
           <Grid item><Icon>volume_up</Icon></Grid>
-          <Grid item>SFX</Grid>
+          <Grid item><h2>SFX</h2></Grid>
           <Grid item>
             <IOSSwitch
               checked={state.checkedSFX}
@@ -98,7 +99,7 @@ function SettingsSwitches() {
             />
           </Grid>
         </Grid>
-      </Typography>
+      </div>
     </FormGroup>
   );
 }
