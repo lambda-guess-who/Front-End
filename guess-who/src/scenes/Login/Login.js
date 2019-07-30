@@ -20,8 +20,9 @@ const Login = props => {
 
 
     const submit = e => {
-        e.preventDefault();
+        // e.preventDefault();
         props.login(formState);
+        localStorage.setItem("username", formState.username)
         props.history.push("/dashboard")
         setFormState({
             username: "",
@@ -41,6 +42,7 @@ const Login = props => {
                 placeholder="username"
                 value={formState.username}
                 onChange={handleChanges}
+                autoComplete="off"
                 required
             />
             <label htmlFor="password">Password:</label>
@@ -55,13 +57,15 @@ const Login = props => {
                 required
             />
             <button>Login</button>
+            {props.error && <h3>{props.error}</h3>}
         </form>
     );
 };
 
 const mapStateToProps = state => {
     return {
-        ...state
+        ...state,
+        error: state.error,
     }
 }
 
