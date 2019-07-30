@@ -8,6 +8,12 @@ import SettingsSwitches from "./SettingsSwitches";
 
 
 const Settings = props => {
+    
+   const logout = () => {
+       localStorage.removeItem("token")
+       props.history.push("/")
+   } 
+
     return (
         <div className="settings-container">
             <h1>Settings</h1>
@@ -18,6 +24,7 @@ const Settings = props => {
             <div className="Button">
                 <Icon></Icon>Contact Us
             </div>
+            <button onClick={logout}>logout</button>
         </div>
     );
 }

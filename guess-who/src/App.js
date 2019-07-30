@@ -13,23 +13,17 @@ import './index.scss';
 
 function App(props) {
   
-  const token = localStorage.getItem("token");
-
-  const logout = () => {
-    localStorage.removeItem("token")
-    console.log(props);
-  } 
+  // const token = localStorage.getItem("token"); 
 
   return (
     <div className="App">
-      Guess Who
       <div className="tempLinks">
         <Link to="/">Login</Link>
         <Link to="/signup">Sign Up</Link>
         <Link to="/dashboard">dashboard</Link>
         <Link to="/settings">settings</Link>
         <Link to="/game">game</Link>
-        <button onClick={logout}>logout</button>
+        {/* <button onClick={logout}>logout</button> */}
       </div>
 
       {/* {token 
