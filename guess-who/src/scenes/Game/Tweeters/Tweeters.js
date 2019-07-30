@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Tweeters = () => {
+const Tweeters = props => {
     return (
         <div className="tweeters-container">
             <p className="tweeter-title">
