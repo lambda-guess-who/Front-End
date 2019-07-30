@@ -12,6 +12,9 @@
 /* Tweet------------------------------------------------ */
 
 .tweet-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
     margin: 25px 0;
     padding: 15px;
     border-radius: 15px;
@@ -22,6 +25,8 @@
 }
 
 .tweet-date {
+    position: relative;
+    top: 15px;
     align-items: flex-end;
     font-size: 10px;
 }
