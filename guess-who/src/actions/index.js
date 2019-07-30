@@ -31,10 +31,10 @@ export const login = user => dispatch => {
     dispatch({ type: LOGIN_START })
     // console.log("user: ", user);
     axiosWithAuth()
-        .get(LOGIN_ENDPOINT, user)
+        .post(LOGIN_ENDPOINT, user)
         .then(res => {
             console.log("res: ", res)
-            // dispatch({ type: LOGIN_SUCCESS, payload: res.data.token })
+            dispatch({ type: LOGIN_SUCCESS, payload: res.data.token })
         })
         .catch(err => {
             console.log("err: ", err)
