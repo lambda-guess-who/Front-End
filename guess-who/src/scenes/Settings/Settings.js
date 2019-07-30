@@ -1,11 +1,13 @@
 import React from 'react';
+import { connect } from 'react-redux';
+
 import "../../index.scss";
 import "./settings.scss";
 import Icon from '@material-ui/core/Icon';
 import SettingsSwitches from "./SettingsSwitches";
 
 
-function Settings() {
+const Settings = props => {
     return (
         <div className="settings-container">
             <h1>Settings</h1>
@@ -20,5 +22,14 @@ function Settings() {
     );
 }
 
-export default Settings
+const mapStateToProps = state => {
+    return {
+        ...state,
+    }
+}
+
+export default connect(
+    mapStateToProps,
+    {}
+)(Settings);
 

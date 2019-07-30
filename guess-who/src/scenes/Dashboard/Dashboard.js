@@ -1,4 +1,6 @@
 import React from 'react';
+import { connect } from 'react-redux';
+
 import Header from './Header';
 import Body from './Body';
 import Footer from './Footer';
@@ -7,7 +9,7 @@ import Footer from './Footer';
 import './styles.scss';
 
 
-function Dashboard(){
+const Dashboard = props => {
     return (
         <div className='dashboard'>
             <Header />
@@ -17,4 +19,14 @@ function Dashboard(){
     )
 };
 
-export default Dashboard;
+const mapStateToProps = state => {
+    return {
+        ...state,
+        username: state.username
+    }
+}
+
+export default connect(
+    mapStateToProps,
+    {}
+)(Dashboard);

@@ -45,7 +45,7 @@ export const reducer = (state = initialState, action) => {
                 ...state,
                 loggingIn: false,
                 error: '',
-                // token: localStorage.setItem("token", action.payload),
+                token: localStorage.setItem("token", action.payload),
                 // username: something
             }
         case actions.LOGIN_FAILURE:
