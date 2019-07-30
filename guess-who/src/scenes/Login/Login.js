@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 import { connect } from 'react-redux';
 
-const Login = () => {
+import { login } from '../../actions';
+
+const Login = props => {
     
-    // const [username, setUsername] = useState("");
-    // const [password, setPassword] = useState("");
     const [formState, setFormState] = useState({
         username: "",
         password: "",
@@ -21,6 +21,8 @@ const Login = () => {
 
     const submit = e => {
         e.preventDefault();
+        props.login(formState);
+        props.history.push("/dashboard")
         setFormState({
             username: "",
             password: ""
@@ -39,6 +41,7 @@ const Login = () => {
                 placeholder="username"
                 value={formState.username}
                 onChange={handleChanges}
+                required
             />
             <label htmlFor="password">Password:</label>
             <input
@@ -49,6 +52,7 @@ const Login = () => {
                 value={formState.password}
                 onChange={handleChanges}
                 autoComplete="off"
+                required
             />
             <button>Login</button>
         </form>
@@ -63,5 +67,5 @@ const mapStateToProps = state => {
 
 export default connect(
     mapStateToProps,
-    {}
+    { login }
 )(Login);

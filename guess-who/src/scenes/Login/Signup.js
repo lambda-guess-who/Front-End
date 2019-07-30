@@ -21,13 +21,16 @@ const Signup = props => {
 
     const submit = e => {
         e.preventDefault();
-        props.signup(formState)
+        props.signup(formState);
+        props.history.push("/")
         setFormState({
             username: "",
             password: ""
         })
 
     }
+
+    // console.log("signup props: ", props);
 
     return (
         <form onSubmit={submit}>
@@ -40,8 +43,10 @@ const Signup = props => {
                 placeholder="username"
                 value={formState.username}
                 onChange={handleChanges}
+                required
             />
             <label htmlFor="password">Password:</label>
+            {console.log(formState.password)}
             <input
                 type="password"
                 id="password"
@@ -50,6 +55,7 @@ const Signup = props => {
                 value={formState.password}
                 onChange={handleChanges}
                 autoComplete="off"
+                required
             />
             <button>Signup</button>
         </form>

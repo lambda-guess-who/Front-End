@@ -2,9 +2,9 @@ import * as actions from '../actions';
 
 export const initialState = {
     username: '',
-    password: '',
     token: '',
     signingUp: false,
+    loggingIn: false,
     error: ''
 };
 
@@ -16,9 +16,7 @@ export const reducer = (state = initialState, action) => {
             return {
                 ...state,
                 signingUp: true,
-                error: '',
-                // token: localStorage.getItem("token")
-
+                error: ''
             }
         case actions.SIGNUP_SUCCESS:
             return {
@@ -26,5 +24,31 @@ export const reducer = (state = initialState, action) => {
                 signingUp: false,
                 error: '',
             }
+        case actions.SIGNUP_FAILURE:
+            return {
+                ...state,
+                signingUp: false,
+                error: action.payload
+            }
+        case actions.LOGIN_START:
+            return {
+                ...state,
+                loggingIn: true,
+                error: ''
+            }
+        case actions.LOGIN_SUCCESS:
+            return {
+                ...state,
+                loggingIn: false,
+                error: '',
+                // token: localStorage.setItem("token", action.payload)
+            }
+        case actions.LOGIN_FAILURE:
+            return {
+                ...state,
+                loggingIn: false,
+                error: action.payload
+            }
+    
     }
 }
