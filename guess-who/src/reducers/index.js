@@ -5,6 +5,7 @@ export const initialState = {
     token: '',
     tweet: '',
     tweeters: [],
+    answer: '',
     signingUp: false,
     loggingIn: false,
     gettingTwitter: false,
@@ -57,7 +58,10 @@ export const reducer = (state = initialState, action) => {
             return {
                 ...state,
                 gettingTwitter: true,
-                error: ''
+                error: '',
+                tweet: '',
+                tweeters: [],
+                answer: ''
             }
         case actions.GET_TWITTER_SUCCESS:
             return {
@@ -65,7 +69,8 @@ export const reducer = (state = initialState, action) => {
                 gettingTwitter: false,
                 error: '',
                 tweet: action.payload.tweet,
-                tweeters: action.payload.tweeters
+                tweeters: action.payload.tweeters,
+                answer: action.payload.answer
             }
         case actions.GET_TWITTER_FAILURE:
             return {

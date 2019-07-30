@@ -5,6 +5,8 @@ import { PrivateRoute } from './PrivateRoute';
 import Login from './scenes/Login/Login';
 import Signup from './scenes/Login/Signup';
 import Dashboard from './scenes/Dashboard/Dashboard';
+import Settings from './scenes/Settings/Settings';
+import Game from './scenes/Game/Game';
 
 import './App.scss';
 
@@ -19,6 +21,9 @@ function App() {
       <Route path="/signup" component={Signup} />
       {/* <Route path="/dashboard" component={Dashboard} /> */}
       <PrivateRoute path="/dashboard" component={Dashboard} />
+      <PrivateRoute path="/settings" component={Settings} />
+      <PrivateRoute path="/game" component={Game} />
+
     </div>
   );
 }
