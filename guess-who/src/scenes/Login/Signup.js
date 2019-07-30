@@ -22,7 +22,7 @@ const Signup = props => {
     const submit = e => {
         e.preventDefault();
         props.signup(formState);
-        props.history.push("/")
+        props.token ? props.history.push("/dashboard") : props.history.push("/")
         setFormState({
             username: "",
             password: ""
