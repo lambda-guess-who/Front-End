@@ -2,7 +2,7 @@ import { axiosWithAuth } from '../axiosAuth';
 
 const LOGIN_ENDPOINT = 'https://lambda-guess-who.herokuapp.com/api/auth/login';
 const SIGNUP_ENDPOINT = 'https://lambda-guess-who.herokuapp.com/api/auth/register';
-const TWITTER_ENDPOINT = '';
+const TWITTER_ENDPOINT = 'https://lambda-guess-who.herokuapp.com/api/question';
 
 export const SIGNUP_START = "SIGNUP_START"; 
 export const SIGNUP_SUCCESS = "SIGNUP_SUCCESS";

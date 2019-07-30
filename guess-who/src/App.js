@@ -2,7 +2,6 @@ import React from 'react';
 import { Route, Link } from 'react-router-dom';
 import { PrivateRoute } from './PrivateRoute';
 
-
 import Login from './scenes/Login/Login';
 import Signup from './scenes/Login/Signup';
 import Dashboard from './scenes/Dashboard/Dashboard';
@@ -15,7 +14,6 @@ import './index.scss';
 function App() {
   return (
     <div className="App">
-      <Dashboard />
       Guess Who
       <div className="tempLinks">
         <Link to="/">Login</Link>

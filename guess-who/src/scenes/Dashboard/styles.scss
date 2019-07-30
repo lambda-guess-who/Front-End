@@ -53,7 +53,7 @@
 
         &:active{
             animation: shake 0.5s;
-            @keyframes shake;
+            @keyframes shake{}
         }   
     }
     .yellowButton {
@@ -63,7 +63,7 @@
 
         &:active{
             animation: shake 0.5s;
-            @keyframes shake;
+            @keyframes shake{}
         } 
     }
     .redButton {
@@ -73,7 +73,7 @@
 
         &:active{
             animation: shake 0.5s;
-            @keyframes shake;
+            @keyframes shake{}
         } 
     }
 
@@ -89,7 +89,7 @@
 
         &:active{
             animation: shake 0.5s;
-            @keyframes shake;
+            @keyframes shake{}
         }
         
         img{
