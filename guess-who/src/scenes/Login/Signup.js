@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import { connect } from 'react-redux';
 
-import { login } from '../../actions';
+import { signup } from '../../actions';
 
-const Login = props => {
+const Signup = props => {
     
     const [formState, setFormState] = useState({
         username: "",
@@ -21,8 +21,8 @@ const Login = props => {
 
     const submit = e => {
         e.preventDefault();
-        props.login(formState);
-        props.history.push("/dashboard")
+        props.signup(formState);
+        props.token ? props.history.push("/dashboard") : props.history.push("/")
         setFormState({
             username: "",
             password: ""
@@ -30,9 +30,11 @@ const Login = props => {
 
     }
 
+    // console.log("signup props: ", props);
+
     return (
         <form onSubmit={submit}>
-            <h1>Login</h1>
+            <h1>Signup</h1>
             <label htmlFor="username">Username:</label>
             <input
                 type="username"
@@ -44,6 +46,7 @@ const Login = props => {
                 required
             />
             <label htmlFor="password">Password:</label>
+            {console.log(formState.password)}
             <input
                 type="password"
                 id="password"
@@ -54,18 +57,19 @@ const Login = props => {
                 autoComplete="off"
                 required
             />
-            <button>Login</button>
+            <button>Signup</button>
         </form>
     );
 };
 
 const mapStateToProps = state => {
     return {
-        ...state
+        ...state,
+        token: state.token,
     }
 }
 
 export default connect(
     mapStateToProps,
-    { login }
-)(Login);
+    { signup }
+)(Signup);

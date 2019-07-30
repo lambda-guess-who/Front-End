@@ -1,0 +1,68 @@
+.game-container {
+    display: flex;
+    justify-content: center;
+    /* flex-direction: column; */
+    flex-wrap: wrap;
+    width: 100%;
+    height: 100vh;
+    background-image: url('./images/Wallpaper.png');
+    background-repeat: no-repeat;
+}
+
+/* Tweet------------------------------------------------ */
+
+.tweet-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin: 25px 0;
+    padding: 15px;
+    border-radius: 15px;
+    background-color: #fff;
+    color: #000;
+    height: 150px;
+    width: 300px;
+}
+
+.tweet-date {
+    position: relative;
+    top: 15px;
+    align-items: flex-end;
+    font-size: 10px;
+}
+
+.tweet-stats {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    color: #1DA1F2;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.tweet-stats p {
+    margin: 0;
+}
+
+/* Tweeters---------------------------------------------- */
+
+.tweeters-container {
+    margin-top: -250px;
+}
+
+.tweeter {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    width: 300px;
+    height: 40px;
+    margin-top: 20px;
+    padding: 15px;
+    background-color: #fff;
+    color: #000;
+    border-radius: 50px;
+}
+
+.tweeter p {
+    margin: 0;
+}
