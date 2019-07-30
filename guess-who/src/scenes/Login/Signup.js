@@ -45,7 +45,6 @@ const Signup = props => {
                 required
             />
             <label htmlFor="password">Password:</label>
-            {console.log(formState.password)}
             <input
                 type="password"
                 id="password"

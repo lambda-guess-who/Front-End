@@ -17,13 +17,13 @@ const Game = props => {
     }
     useEffect(() => {
         fetchTwitter()
-    }, [])
+    }, [props.tweet])
 
     return (
         <div className="game-container">
             <Tweet />
             <Tweeters />
-            <button onClick={fetchTwitter}>Get Twitter Test</button>
+            {/* <button onClick={fetchTwitter}>Get Twitter Test</button> */}
         </div>
     )
 }
