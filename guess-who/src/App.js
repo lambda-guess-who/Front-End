@@ -1,5 +1,5 @@
 import React from 'react';
-import { Route } from 'react-router-dom';
+import { Route, Link } from 'react-router-dom';
 import { PrivateRoute } from './PrivateRoute';
 
 import Login from './scenes/Login/Login';
@@ -12,8 +12,13 @@ function App() {
   return (
     <div className="App">
       Guess Who
+      <Link to="/">Signup</Link>
+      <Link to="/login">Login</Link>
+      <Link to="/dashboard">dashboard</Link>
       <Route exact path="/" component={Signup} />
-      <PrivateRoute path="/dashboard" component={Dashboard} />
+      <Route path="/login" component={Login} />
+      <Route path="/dashboard" component={Dashboard} />
+      {/* <PrivateRoute path="/dashboard" component={Dashboard} /> */}
     </div>
   );
 }

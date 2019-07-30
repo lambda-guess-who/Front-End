@@ -29,6 +29,8 @@ const Signup = props => {
 
     }
 
+    // console.log("signup props: ", props);
+
     return (
         <form onSubmit={submit}>
             <h1>Signup</h1>
@@ -40,8 +42,10 @@ const Signup = props => {
                 placeholder="username"
                 value={formState.username}
                 onChange={handleChanges}
+                required
             />
             <label htmlFor="password">Password:</label>
+            {console.log(formState.password)}
             <input
                 type="password"
                 id="password"
@@ -50,6 +54,7 @@ const Signup = props => {
                 value={formState.password}
                 onChange={handleChanges}
                 autoComplete="off"
+                required
             />
             <button>Signup</button>
         </form>
