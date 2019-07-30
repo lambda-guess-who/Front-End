@@ -1,7 +1,6 @@
 import React from 'react';
 import { Route, Link } from 'react-router-dom';
 import { PrivateRoute } from './PrivateRoute';
-import Game from './scenes/Game/Game.js';
 
 import Login from './scenes/Login/Login';
 import Signup from './scenes/Login/Signup';
