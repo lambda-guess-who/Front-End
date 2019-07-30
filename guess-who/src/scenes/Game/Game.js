@@ -9,13 +9,12 @@ import Tweeters from './Tweeters/Tweeters.js'
 
 const Game = props => { 
 
-    const fetchTwitter = e => {
-        e.preventDefault();
+    const fetchTwitter = () => {
         props.getTwitter();
     }
-    // useEffect(() => {
-    //     fetchTwitter()
-    // }, [])
+    useEffect(() => {
+        fetchTwitter()
+    }, [])
 
     return (
         <div className="game-container">
@@ -30,7 +29,8 @@ const mapStateToProps = state => {
     return {
         ...state,
         tweet: state.tweet,
-        tweeters: state.tweeters
+        tweeters: state.tweeters,
+        correctAnswer: state.answer
     }
 }
 
