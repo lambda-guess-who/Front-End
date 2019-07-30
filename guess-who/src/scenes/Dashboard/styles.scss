@@ -1,0 +1,141 @@
+@import '../../scss/mixins.scss';
+@import '../../scss/variables.scss';
+
+.App {
+    // background-color: #23acf4;
+    background-image: linear-gradient(#23acf4, #98dafd)
+}
+
+.header {
+    display: flex;
+    justify-content: space-around;
+    padding-top: 10px;
+
+    h1{
+        margin: 0;
+    }
+    
+    img {
+        width: 40px;
+        height: 40px;
+    }
+}
+
+.body{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+
+    button{
+        @include buttons;
+   
+        img{
+            padding: 0 10px 0;
+            width: 20px;
+            height: 20px;
+        }
+
+    }
+
+    .blueButton {
+        border: 3px solid $borderBlue;
+        
+        &:active {
+            color: white;
+            background-color: blue;
+        }
+    }
+    .greenButton {
+        background-color: lightgray;
+        border: 3px solid $borderGreen;
+        opacity: 0.7;
+
+        &:active{
+            animation: shake 0.5s;
+            @keyframes shake;
+        }   
+    }
+    .yellowButton {
+        background-color: lightgray;
+        border: 3px solid $borderYellow;
+        opacity: 0.7;
+
+        &:active{
+            animation: shake 0.5s;
+            @keyframes shake;
+        } 
+    }
+    .redButton {
+        background-color: lightgray;
+        border: 3px solid $borderRed;
+        opacity: 0.7;
+
+        &:active{
+            animation: shake 0.5s;
+            @keyframes shake;
+        } 
+    }
+
+    .littleRedButton {
+        background-color: darkred;
+        border: none;
+        color: white;
+        width: 40%;
+        height: 10%;
+        padding: 10px;
+        font-size: 10px;
+        opacity: 0.7;
+
+        &:active{
+            animation: shake 0.5s;
+            @keyframes shake;
+        }
+        
+        img{
+            width: 15px;
+            height: 15px;
+        }
+    }
+    .purpleButton {
+        display: flex;
+        justify-content: flex-start;
+        margin-top: 10px;
+        border: 2px solid $borderPurple;
+        padding: 10px;
+        width: 50%;
+
+        &:active {
+            color: white;
+            box-shadow: 5px 2px 1px  2px white;
+            background-color: $borderPurple;
+        }
+    }
+
+    p{
+        font-size: 12px;
+        font-weight: 500;
+        width: 50%;
+    }
+}
+
+.footer{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    padding: 10px;
+
+    img{
+        width: 40px;
+        height: 40px;
+    }
+
+    h3{
+        margin-left: -30px;
+        margin-top: 0;
+        margin-bottom: 0;
+        font-size: 30px;
+    }
+}
+
