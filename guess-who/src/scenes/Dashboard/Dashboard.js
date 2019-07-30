@@ -10,8 +10,13 @@ import './styles.scss';
 
 
 const Dashboard = props => {
+    
+    console.log("props: ", props);
+    console.log("props.username: ", props.username);
+
     return (
         <div className='dashboard'>
+            {props.username && <p>{props.username}</p>}
             <Header />
             <Body /> 
             <Footer />

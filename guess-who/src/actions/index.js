@@ -38,7 +38,7 @@ export const login = user => dispatch => {
         })
         .catch(err => {
             console.log("err: ", err)
-            // dispatch({ type: LOGIN_FAILURE, payload: err })
+            dispatch({ type: LOGIN_FAILURE, payload: 'username or password is incorrect'})
         })
 }
 
