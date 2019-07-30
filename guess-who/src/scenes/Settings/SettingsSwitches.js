@@ -1,11 +1,6 @@
 
 import React from 'react';
-import { withStyles } from '@material-ui/core/styles';
-import FormGroup from '@material-ui/core/FormGroup';
-import Switch from '@material-ui/core/Switch';
-import Grid from '@material-ui/core/Grid';
-import Typography from '@material-ui/core/Typography';
-import Icon from '@material-ui/core/Icon';
+import { Icon, Typography, Grid, Switch, FormGroup, withStyles } from '@material-ui/core';
 
 
 const IOSSwitch = withStyles(theme => ({
