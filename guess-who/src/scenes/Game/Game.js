@@ -19,6 +19,16 @@ const Game = props => {
         fetchTwitter()
     }, [props.tweet])
 
+    const checkAnswer = (userAnswer, correctAnswer) => {
+        if(userAnswer === correctAnswer) {
+            console.log("something");
+        }
+    }
+
+    const pickAnswer = () => {
+
+    }
+
     return (
         <div className="wrapper">
             <div className="game-container">
@@ -29,8 +39,9 @@ const Game = props => {
                 <Tweet />
                 <Tweeters />
                 <div className="twitter-btn">
-                    <button onClick={fetchTwitter}>Get Twitter Test</button>
+                    <button onClick={() => checkAnswer()}>Check answer</button>
                 </div>
+                <p>{score}</p>
             </div>
         </div>
     )
