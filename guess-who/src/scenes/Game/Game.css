@@ -101,6 +101,21 @@ button {
     border-radius: 50px;
 }
 
+.tweeter-info {
+    display: flex;
+    flex-direction: column;
+    padding: 10px 0 0 15px;
+}
+
+.tweet-name {
+    font-weight: bold;
+    font-size: 14px;
+}
+
+.tweet-handle {
+    font-size: 12px;
+}
+
 .tweeter p {
     margin: 0;
 }
