@@ -11,6 +11,7 @@ const Settings = props => {
     
    const logout = () => {
        localStorage.removeItem("token")
+       localStorage.removeItem("username")
        props.history.push("/")
    } 
 

@@ -21,17 +21,19 @@ const Login = props => {
 
     const submit = e => {
         e.preventDefault();
-        props.login(formState);
-        props.history.push("/dashboard")
-        setFormState({
-            username: "",
-            password: ""
-        })
-
+        props.login(formState).then(isLoggedIn => {
+            if(isLoggedIn) {
+                setFormState({
+                    username: "",
+                    password: ""
+                })
+            props.history.push("/dashboard")
+        }});
     }
 
     return (
         <form onSubmit={submit}>
+            {props.welcomeMesage && <h3>{`${props.welcomeMesage}!`}</h3>}
             <h1>Login</h1>
             <label htmlFor="username">Username:</label>
             <input
@@ -41,6 +43,7 @@ const Login = props => {
                 placeholder="username"
                 value={formState.username}
                 onChange={handleChanges}
+                autoComplete="off"
                 required
             />
             <label htmlFor="password">Password:</label>
@@ -55,13 +58,16 @@ const Login = props => {
                 required
             />
             <button>Login</button>
+            {props.error && <h3>{props.error}</h3>}
         </form>
     );
 };
 
 const mapStateToProps = state => {
     return {
-        ...state
+        ...state,
+        error: state.error,
+        welcomeMesage: state.welcome
     }
 }
 

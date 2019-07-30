@@ -10,8 +10,11 @@ import './styles.scss';
 
 
 const Dashboard = props => {
+
     return (
         <div className='dashboard'>
+            {props.username && <p>{props.username}</p>}
+            {/* {props.welcomeMesage && <h3>{props.welcomeMesage}</h3>} */}
             <Header />
             <Body /> 
             <Footer />
@@ -22,7 +25,8 @@ const Dashboard = props => {
 const mapStateToProps = state => {
     return {
         ...state,
-        username: state.username
+        username: state.username,
+        welcomeMesage: state.welcome
     }
 }
 

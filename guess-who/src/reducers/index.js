@@ -9,7 +9,8 @@ export const initialState = {
     signingUp: false,
     loggingIn: false,
     gettingTwitter: false,
-    error: ''
+    error: '',
+    welcome: ''
 };
 
 export const reducer = (state = initialState, action) => {
@@ -27,6 +28,7 @@ export const reducer = (state = initialState, action) => {
                 ...state,
                 signingUp: false,
                 error: '',
+                welcome: action.payload
             }
         case actions.SIGNUP_FAILURE:
             return {
@@ -46,7 +48,7 @@ export const reducer = (state = initialState, action) => {
                 loggingIn: false,
                 error: '',
                 token: localStorage.setItem("token", action.payload),
-                // username: something
+                username: localStorage.getItem("username")                
             }
         case actions.LOGIN_FAILURE:
             return {
