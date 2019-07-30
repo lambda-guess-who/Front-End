@@ -5,9 +5,7 @@ function Body(){
     return (
         <div className='body'>
             <h3>Pick a category!</h3>
-            <button class='blueButton'>Presidential Candidates
-            <img src='http://freepngdownload.com/image/thumb/pad-lock-png-free-download-28.png' />
-            </button>
+            <button class='blueButton'><a>Presidential Candidates</a></button>
             <button class='greenButton'>Venture Capitalists
             <img src='http://freepngdownload.com/image/thumb/pad-lock-png-free-download-28.png' />
             </button>
@@ -20,8 +18,9 @@ function Body(){
             <button class='littleRedButton'>More Categories
             <img src='https://i.imgur.com/rYqVMNT.png' />
             </button>
-            <button class='purpleButton'>Invite Friends
+            <button class='purpleButton'>
             <img src='https://png.pngtree.com/svg/20160823/f5a18f969c.png' />
+            Invite Friends
             </button>
             <p>Instantly unlock 5 new levels when you invite a friend</p>
         </div>

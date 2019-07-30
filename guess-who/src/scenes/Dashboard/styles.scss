@@ -1,4 +1,5 @@
-
+@import '../../scss/mixins.scss';
+@import '../../scss/variables.scss';
 
 .App {
     // background-color: #23acf4;
@@ -28,19 +29,8 @@
     align-items: center;
 
     button{
-        display: flex;
-        justify-content: space-between;
-        padding: 20px;
-        margin: 5px;
-        width: 76%;
-        border-radius: 80px;
-        font-size: 15px;
-        font-weight: 800;
-        font-family: arial;
-        background-color: white;
-        align-items: center;
+        @include buttons;
    
-
         img{
             padding: 0 10px 0;
             width: 20px;
@@ -50,26 +40,44 @@
     }
 
     .blueButton {
-        border: 3px solid blue;
-    
+        border: 3px solid $borderBlue;
+        
+        &:active {
+            color: white;
+            background-color: blue;
+        }
     }
     .greenButton {
         background-color: lightgray;
-        border: 3px solid green;
+        border: 3px solid $borderGreen;
         opacity: 0.7;
+
+        &:active{
+            animation: shake 0.5s;
+            @keyframes shake;
+        }   
     }
     .yellowButton {
         background-color: lightgray;
-        border: 3px solid gold;
+        border: 3px solid $borderYellow;
         opacity: 0.7;
+
+        &:active{
+            animation: shake 0.5s;
+            @keyframes shake;
+        } 
     }
     .redButton {
         background-color: lightgray;
-        border: 3px solid red;
+        border: 3px solid $borderRed;
         opacity: 0.7;
-        
-       
+
+        &:active{
+            animation: shake 0.5s;
+            @keyframes shake;
+        } 
     }
+
     .littleRedButton {
         background-color: darkred;
         border: none;
@@ -79,6 +87,11 @@
         padding: 10px;
         font-size: 10px;
         opacity: 0.7;
+
+        &:active{
+            animation: shake 0.5s;
+            @keyframes shake;
+        }
         
         img{
             width: 15px;
@@ -87,12 +100,17 @@
     }
     .purpleButton {
         display: flex;
-        justify-content: space-between;
+        justify-content: flex-start;
         margin-top: 10px;
-        border: 2px solid purple;
+        border: 2px solid $borderPurple;
         padding: 10px;
         width: 50%;
-      
+
+        &:active {
+            color: white;
+            box-shadow: 5px 2px 1px  2px white;
+            background-color: $borderPurple;
+        }
     }
 
     p{
@@ -118,7 +136,6 @@
         margin-top: 0;
         margin-bottom: 0;
         font-size: 30px;
-        
     }
 }
 
