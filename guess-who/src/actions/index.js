@@ -15,7 +15,7 @@ export const signup = user => dispatch => {
         .post(SIGNUP_ENDPOINT, user)
         .then(res => {
             console.log("res: ", res)
-            // dispatch({ type: SIGNUP_SUCCESS, payload: res.data })
+            dispatch({ type: SIGNUP_SUCCESS, payload: res.data })
         })
         .catch(err => {
             console.log("err: ",err)
@@ -30,11 +30,13 @@ export const LOGIN_FAILURE = "LOGIN_FAILURE";
 export const login = user => dispatch => {
     dispatch({ type: LOGIN_START })
     // console.log("user: ", user);
-    axiosWithAuth()
+    return axiosWithAuth()
         .post(LOGIN_ENDPOINT, user)
         .then(res => {
             console.log("res: ", res)
+            localStorage.setItem("username", user.username)
             dispatch({ type: LOGIN_SUCCESS, payload: res.data.token })
+            return true
         })
         .catch(err => {
             console.log("err: ", err)
