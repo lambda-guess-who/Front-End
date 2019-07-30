@@ -21,7 +21,8 @@ const Signup = props => {
 
     const submit = e => {
         e.preventDefault();
-        props.signup(formState)
+        props.signup(formState);
+        props.history.push("/")
         setFormState({
             username: "",
             password: ""

@@ -14,12 +14,11 @@ export const signup = user => dispatch => {
         .post(SIGNUP_ENDPOINT, user)
         .then(res => {
             console.log("res: ", res)
-            // localStorage.setItem("token", )
             // dispatch({ type: SIGNUP_SUCCESS, payload: res.data })
         })
         .catch(err => {
             console.log("err: ",err)
-            // dispatch({ type: SIGNUP_FAILURE, payload: res.data })
+            // dispatch({ type: SIGNUP_FAILURE, payload: err })
         })
 }
 
@@ -34,8 +33,10 @@ export const login = user => dispatch => {
         .get(LOGIN_ENDPOINT, user)
         .then(res => {
             console.log("res: ", res)
+            // dispatch({ type: LOGIN_SUCCESS, payload: res.data.token })
         })
         .catch(err => {
             console.log("err: ", err)
+            // dispatch({ type: LOGIN_FAILURE, payload: err })
         })
 }

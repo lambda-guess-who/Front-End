@@ -12,11 +12,11 @@ function App() {
   return (
     <div className="App">
       Guess Who
-      <Link to="/">Signup</Link>
-      <Link to="/login">Login</Link>
+      <Link to="/">Login</Link>
+      <Link to="/signup">Sign Up</Link>
       <Link to="/dashboard">dashboard</Link>
-      <Route exact path="/" component={Signup} />
-      <Route path="/login" component={Login} />
+      <Route exact path="/" component={Login} />
+      <Route path="/signup" component={Signup} />
       <Route path="/dashboard" component={Dashboard} />
       {/* <PrivateRoute path="/dashboard" component={Dashboard} /> */}
     </div>
