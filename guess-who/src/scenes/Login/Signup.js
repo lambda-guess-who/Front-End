@@ -30,8 +30,6 @@ const Signup = props => {
 
     }
 
-    // console.log("signup props: ", props);
-
     return (
         <form onSubmit={submit}>
             <h1>Signup</h1>
@@ -43,6 +41,7 @@ const Signup = props => {
                 placeholder="username"
                 value={formState.username}
                 onChange={handleChanges}
+                autoComplete="off"
                 required
             />
             <label htmlFor="password">Password:</label>
