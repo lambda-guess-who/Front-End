@@ -9,7 +9,8 @@ export const initialState = {
     signingUp: false,
     loggingIn: false,
     gettingTwitter: false,
-    error: ''
+    error: '',
+    welcome: ''
 };
 
 export const reducer = (state = initialState, action) => {
@@ -27,6 +28,7 @@ export const reducer = (state = initialState, action) => {
                 ...state,
                 signingUp: false,
                 error: '',
+                welcome: action.payload
             }
         case actions.SIGNUP_FAILURE:
             return {

@@ -20,19 +20,20 @@ const Login = props => {
 
 
     const submit = e => {
-        // e.preventDefault();
-        props.login(formState);
-        localStorage.setItem("username", formState.username)
-        props.history.push("/dashboard")
-        setFormState({
-            username: "",
-            password: ""
-        })
-
+        e.preventDefault();
+        props.login(formState).then(isLoggedIn => {
+            if(isLoggedIn) {
+                setFormState({
+                    username: "",
+                    password: ""
+                })
+            props.history.push("/dashboard")
+        }});
     }
 
     return (
         <form onSubmit={submit}>
+            {props.welcomeMesage && <h3>{`${props.welcomeMesage}!`}</h3>}
             <h1>Login</h1>
             <label htmlFor="username">Username:</label>
             <input
@@ -66,6 +67,7 @@ const mapStateToProps = state => {
     return {
         ...state,
         error: state.error,
+        welcomeMesage: state.welcome
     }
 }
 
