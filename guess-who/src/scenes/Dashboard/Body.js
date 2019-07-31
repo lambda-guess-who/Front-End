@@ -1,13 +1,14 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 
 function Body(){
     return (
         <div className='body'>
             <h3>Pick a category!</h3>
-            <button className='blueButton'>
-                <a>Presidential Candidates</a>
-            </button>
+            <Link to="/game">
+                <button className='blueButton'>Presidential Candidates</button>
+            </Link>
             <button className='greenButton'>
                 Venture Capitalists
                 <img src='http://freepngdownload.com/image/thumb/pad-lock-png-free-download-28.png' alt=''/>
