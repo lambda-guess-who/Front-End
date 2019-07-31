@@ -5,7 +5,7 @@ export const initialState = {
     token: '',
     tweet: '',
     tweeters: [],
-    answer: '',
+    answer: {},
     signingUp: false,
     loggingIn: false,
     gettingTwitter: false,
@@ -80,6 +80,11 @@ export const reducer = (state = initialState, action) => {
                 ...state,
                 gettingTwitter: false,
                 error: action.payload
+            }
+        case actions.HIGH_SCORE:
+            return {
+                ...state,
+                highScore: action.payload
             }
     }
 }
