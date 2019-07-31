@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { connect } from 'react-redux';
 
-import { getTwitter } from '../../actions';
+import { getTwitter, postScore } from '../../actions';
 
 import './Game.css';
 import Tweet from './Tweet/Tweet.js';
@@ -11,23 +11,31 @@ const Game = props => {
 
     const [score, setScore] = useState(0);
     const [userAnswer, setUserAnswer] = useState('');
+    // let username = props.username;
 
     const fetchTwitter = () => {
         props.getTwitter();
     }
     useEffect(() => {
-        fetchTwitter()
+        fetchTwitter();
     }, [props.tweet])
 
-    const checkAnswer = (userAnswer, correctAnswer) => {
-        if(userAnswer === correctAnswer) {
+    const checkAnswer = (uAnswer, cAnswer) => {
+        if(uAnswer === cAnswer) {
             console.log("something");
+            setScore(score + 1);
         }
     }
 
-    const pickAnswer = () => {
-
+    const pickAnswer = tweeter => {
+        setUserAnswer(tweeter)
     }
+
+    const sendScore = (username, endScore) => {
+        props.postScore({ username, endScore });
+    }
+
+    // sendScore(props.username, props.highScore)
 
     return (
         <div className="wrapper">
@@ -37,11 +45,15 @@ const Game = props => {
                     <p className="category">Presidential Candidates</p>
                 </div>
                 <Tweet />
-                <Tweeters />
+                <Tweeters tweeters={props.tweeters} pickAnswer={pickAnswer} />
                 <div className="twitter-btn">
-                    <button onClick={() => checkAnswer()}>Check answer</button>
+                    {userAnswer
+                        ? <button onClick={() => checkAnswer(userAnswer, props.correctAnswer)}>Check Answer</button>
+                        : <button onClick={() => fetchTwitter()}>Next Tweet</button>
+                    }
                 </div>
-                <p>{score}</p>
+                <p>Current Score: {score}</p>
+                <p>High Score: {props.highScore}</p>
             </div>
         </div>
     )
@@ -52,11 +64,13 @@ const mapStateToProps = state => {
         ...state,
         tweet: state.tweet,
         tweeters: state.tweeters,
-        correctAnswer: state.answer
+        correctAnswer: state.answer,
+        highScore: state.highScore,
+        username: state.username
     }
 }
 
 export default connect(
     mapStateToProps,
-    { getTwitter }
+    { getTwitter, postScore }
 )(Game);
