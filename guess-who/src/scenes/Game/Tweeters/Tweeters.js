@@ -1,6 +1,9 @@
 import React from 'react';
 
 const Tweeters = props => {
+    // let incorrectAnswer = ,
+    //     correctAnswer = ;
+
     return (
         <div className="tweeters-container">
             <p className="tweeter-title">
