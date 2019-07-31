@@ -77,5 +77,6 @@ export const postScore = usersInfo => dispatch => {
         })
         .catch(err => {
             console.log(err);
+            // dispatch({ type: POST_SCORE_FAILURE, payload: err })
         })
 }

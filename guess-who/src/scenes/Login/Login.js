@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
 
 import { login } from '../../actions';
 
@@ -57,6 +58,8 @@ const Login = props => {
                 required
             />
             <button>Login</button>
+            <span>Don't have an account?</span>
+            <Link to="/signup">Signup Here</Link>
             {props.error && <h3>{props.error}</h3>}
         </form>
     );

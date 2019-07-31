@@ -11,7 +11,7 @@ const Game = props => {
 
     const [score, setScore] = useState(0);
     const [userAnswer, setUserAnswer] = useState('');
-    // let username = props.username;
+    // const [answerStatus, setAnswerStatus] = useState(false)
 
     const fetchTwitter = () => {
         props.getTwitter();
@@ -22,7 +22,7 @@ const Game = props => {
 
     const checkAnswer = (uAnswer, cAnswer) => {
         if(uAnswer === cAnswer) {
-            console.log("something");
+            console.log("ta-daaa!");
             setScore(score + 1);
         }
     }
@@ -45,7 +45,10 @@ const Game = props => {
                     <p className="category">Presidential Candidates</p>
                 </div>
                 <Tweet />
-                <Tweeters tweeters={props.tweeters} pickAnswer={pickAnswer} />
+                <Tweeters
+                    tweeters={props.tweeters}
+                    pickAnswer={pickAnswer}
+                />
                 <div className="twitter-btn">
                     {userAnswer
                         ? <button onClick={() => checkAnswer(userAnswer, props.correctAnswer)}>Check Answer</button>
