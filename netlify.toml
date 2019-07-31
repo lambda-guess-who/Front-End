@@ -1,0 +1,13 @@
+# Settings in the [build] context are global and are applied to all contexts 
+# unless otherwise overridden by more specific contexts.  
+[build]
+  base = "guess-who/"
+  publish = "guess-who/build/"
+
+# A basic redirect rule
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+
+  # The default HTTP status code is 301, but you can define a different one.
+  status = 200
