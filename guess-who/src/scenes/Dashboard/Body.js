@@ -30,7 +30,7 @@ function Body(){
                 <img src='https://i.imgur.com/rYqVMNT.png' alt=''/>
             </button>
             <button className='purpleButton'>
-                <img src='https://i.imgur.com/KDnz4zT.png' alt=''/>
+                <img src='https://i.imgur.com/mFkRpB8.png' alt=''/>
                 Invite Friends
             </button>
             <p>Instantly unlock 5 new levels when you invite a friend</p>
