@@ -72,6 +72,7 @@ const Login = props => {
                     <Link to="/signup">Signup Here</Link>
                     {props.error && <h3>{props.error}</h3>}   
                 </span>
+                <img src='https://i.imgur.com/MgaUp0G.png' />
             </div>
         </form>
     );
