@@ -23,7 +23,7 @@ function App() {
       <PrivateRoute path="/dashboard" component={Dashboard} />
       <PrivateRoute path="/settings" component={Settings} />
       <PrivateRoute path="/game" component={Game} />
-      <PrivateRoute path="/tryagain" component={TryAgain} />
+      <PrivateRoute path="/tryagain" component={Game} />
     </div>
   );
 }

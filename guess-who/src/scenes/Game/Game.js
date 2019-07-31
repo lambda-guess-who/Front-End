@@ -7,22 +7,26 @@ import { getTwitter, postScore, setNewHighScore } from '../../actions';
 import './Game.scss';
 import Tweet from './Tweet/Tweet.js';
 import Tweeters from './Tweeters/Tweeters.js'
+import TryAgain from './TryAgain';
 
 const Game = props => { 
 
     const [score, setScore] = useState(0);
     const [userAnswer, setUserAnswer] = useState('');
-   
-    // const [answerStatus, setAnswerStatus] = useState(false)
+    const [canAnswer, setCanAnswer] = useState(true);
 
     const fetchTwitter = () => {
         props.getTwitter();
+        setCanAnswer(true);
+
     }
     useEffect(() => {
         fetchTwitter();
     }, [])
 
     const checkAnswer = (uAnswer, cAnswer) => {
+        console.log("canAnswer before: ", canAnswer);
+        if(canAnswer) {   
         if(uAnswer === cAnswer) {
             console.log("ta-daaa!");
             setScore(score + 1);
@@ -36,7 +40,10 @@ const Game = props => {
                 props.history.push("/tryagain")
             }
         }
+        setCanAnswer(false)
+        console.log("canAnswer after: ", canAnswer);
         setUserAnswer('');
+        }
     }
 
     const pickAnswer = tweeter => {
@@ -51,6 +58,14 @@ const Game = props => {
     // sendScore(props.username, props.highScore)
 
     console.log("props.tweeters: ", props.tweeters);
+    console.log("props.location: ", props.location);
+
+    if(props.location.pathname === "/tryagain") {
+        return <TryAgain 
+            tweet={props.tweet}
+            userObject={props.correctUserObject}
+        /> 
+    }
 
     return (
         <div className="wrapper">
@@ -62,13 +77,13 @@ const Game = props => {
                     <h1>Category</h1>
                     <p className="category">Presidential Candidates</p>
                 </div>
-                <Tweet tweet={props.tweet} />
+                <Tweet tweet={props.tweet} userObject={props.correctUserObject} noImage={true} />
                 <Tweeters
                     tweeters={props.tweeters}
                     pickAnswer={pickAnswer}
                 />
                 <div className="twitter-btn">
-                    {userAnswer
+                    {canAnswer
                         ? <button onClick={() => checkAnswer(userAnswer, props.correctAnswer)}>Check Answer</button>
                         : <button onClick={() => fetchTwitter()}>Next Tweet</button>
                     }
@@ -86,6 +101,7 @@ const mapStateToProps = state => {
         tweet: state.tweet,
         tweeters: state.tweeters,
         correctAnswer: state.answer.screen_name,
+        correctUserObject: state.answer,
         highScore: state.highScore,
         username: state.username
     }
