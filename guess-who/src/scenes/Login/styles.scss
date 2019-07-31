@@ -1,0 +1,113 @@
+@import '../../scss/mixins.scss';
+
+
+.loginContainer{
+    min-height: 812px;
+}
+
+.loginHeader{
+    display: flex;
+    justify-content: flex-start;
+    align-items: baseline;
+    padding: 10px;
+
+    h1{
+        margin: 10px 10px;
+    }
+
+    img{
+        width: 30px;
+        height: 30px;
+        animation-name: dance;
+        animation-duration: 2s;
+        animation-iteration-count: infinite;
+
+        @keyframes dance {
+            0% {transform: rotate(0deg)}
+            20% {transform: rotate(-20deg)}
+            40% {transform: rotate(0deg)}
+            60% {transform: rotate(30deg)}
+            100% {transform: rotate(0deg)}
+        }
+    }
+}
+
+.username{
+    font-family: arial;
+    display: flex;
+    justify-content: flex-start;
+    margin: 10px;
+    
+
+    label {
+        padding: 5px 5px;
+        font-weight: 600;
+        
+    }
+
+    #username{
+        border-radius: 80px;
+        width: 60%;
+        padding: 5px;
+        border: 2px solid white;
+    }
+}
+.password{
+    font-family: arial;
+    display: flex;
+    justify-content: flex-start;
+    margin: 10px;
+
+    label {
+        padding: 5px 6px;
+        font-weight: 600;
+    }
+
+    #password{
+        border-radius: 80px;
+        width: 60%;
+        padding: 5px;
+        border: 2px solid white;
+    }
+}
+
+.loginFooter{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+    padding: 10px;
+    width: 92%;
+
+    button{
+        @include buttons;
+        border: 2px solid white;
+        background-color: transparent;
+        color: white;
+        padding: 5px;
+        justify-content: center;
+        width: 50%;
+        margin-left: 27%;
+        margin-bottom: 20%;
+    }
+
+    span {
+        display: flex;
+        flex-direction: column;
+        color: white;
+        margin-bottom: 5rem;
+
+        a{
+            color: white;
+        }
+    }
+
+    img{
+        width: 400px;
+        height: 80px;
+        width: 100%;
+        margin-bottom: 5rem;
+        transform: rotate(-10deg);
+        opacity: .8;
+    }
+}

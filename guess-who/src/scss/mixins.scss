@@ -2,17 +2,11 @@
 //Buttons
 @mixin buttons {
     display: flex;
-    justify-content: space-between;
-    padding: 20px;
-    margin: 10px;
-    width: 76%;
     border-radius: 80px;
     font-size: 15px;
     font-weight: 800;
     font-family: arial;
-    background-color: white;
     align-items: center;
-    box-shadow: 5px 2px 1px  2px;
   }
 //<------------------------------------------------KEYFRAMES
 
