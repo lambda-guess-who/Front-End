@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import { connect } from 'react-redux';
 
 import { getTwitter } from '../../actions';
@@ -9,18 +9,40 @@ import Tweeters from './Tweeters/Tweeters.js'
 
 const Game = props => { 
 
+    const [score, setScore] = useState(0);
+    const [userAnswer, setUserAnswer] = useState('');
+
     const fetchTwitter = () => {
         props.getTwitter();
     }
     useEffect(() => {
         fetchTwitter()
-    }, [])
+    }, [props.tweet])
+
+    const checkAnswer = (userAnswer, correctAnswer) => {
+        if(userAnswer === correctAnswer) {
+            console.log("something");
+        }
+    }
+
+    const pickAnswer = () => {
+
+    }
 
     return (
-        <div className="game-container">
-            <Tweet />
-            <Tweeters />
-            <button onClick={fetchTwitter}>Get Twitter Test</button>
+        <div className="wrapper">
+            <div className="game-container">
+                <div className="category-title">
+                    <h1>Category</h1>
+                    <p className="category">Presidential Candidates</p>
+                </div>
+                <Tweet />
+                <Tweeters />
+                <div className="twitter-btn">
+                    <button onClick={() => checkAnswer()}>Check answer</button>
+                </div>
+                <p>{score}</p>
+            </div>
         </div>
     )
 }
