@@ -13,10 +13,9 @@ const Dashboard = props => {
 
     return (
         <div className='dashboard'>
-            {props.username && <p>{props.username}</p>}
             <Header />
             <Body /> 
-            <Footer />
+            <Footer highScore={props.highScore} />
         </div>
     )
 };
@@ -24,8 +23,8 @@ const Dashboard = props => {
 const mapStateToProps = state => {
     return {
         ...state,
-        username: state.username,
-        welcomeMesage: state.welcome
+        welcomeMesage: state.welcome,
+        highScore: state.highScore
     }
 }
 

@@ -1,12 +1,17 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 
 function Header(){
     return (
         <div className='header'>
-            <img src='https://i.imgur.com/AWjw3jH.png' alt=''/>
+            <Link to="/profile">
+                <img src='https://i.imgur.com/AWjw3jH.png' alt="" />
+            </Link>
             <h1>Guess Who</h1>
-            <img src='https://i.imgur.com/nJdigNy.png' alt=''/>
+            <Link to="/settings">
+                <img src='https://i.imgur.com/nJdigNy.png' alt="" />
+            </Link>
         </div>
     )
 };

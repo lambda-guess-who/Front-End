@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
 
 import { getTwitter, postScore } from '../../actions';
 
@@ -11,7 +12,7 @@ const Game = props => {
 
     const [score, setScore] = useState(0);
     const [userAnswer, setUserAnswer] = useState('');
-    // let username = props.username;
+    // const [answerStatus, setAnswerStatus] = useState(false)
 
     const fetchTwitter = () => {
         props.getTwitter();
@@ -22,7 +23,7 @@ const Game = props => {
 
     const checkAnswer = (uAnswer, cAnswer) => {
         if(uAnswer === cAnswer) {
-            console.log("something");
+            console.log("ta-daaa!");
             setScore(score + 1);
         }
     }
@@ -40,12 +41,18 @@ const Game = props => {
     return (
         <div className="wrapper">
             <div className="game-container">
+                <Link to="/dashboard">
+                    <img src='https://i.imgur.com/liO8kXc.png' alt =''/>
+                </Link>
                 <div className="category-title">
                     <h1>Category</h1>
                     <p className="category">Presidential Candidates</p>
                 </div>
                 <Tweet />
-                <Tweeters tweeters={props.tweeters} pickAnswer={pickAnswer} />
+                <Tweeters
+                    tweeters={props.tweeters}
+                    pickAnswer={pickAnswer}
+                />
                 <div className="twitter-btn">
                     {userAnswer
                         ? <button onClick={() => checkAnswer(userAnswer, props.correctAnswer)}>Check Answer</button>
