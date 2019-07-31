@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 
 import { getTwitter, postScore } from '../../actions';
 
-import './Game.css';
+import './Game.scss';
 import Tweet from './Tweet/Tweet.js';
 import Tweeters from './Tweeters/Tweeters.js'
 
@@ -12,6 +12,7 @@ const Game = props => {
 
     const [score, setScore] = useState(0);
     const [userAnswer, setUserAnswer] = useState('');
+    // const [count, setCount]
     // const [answerStatus, setAnswerStatus] = useState(false)
 
     const fetchTwitter = () => {
@@ -19,7 +20,7 @@ const Game = props => {
     }
     useEffect(() => {
         fetchTwitter();
-    }, [props.tweet])
+    }, [])
 
     const checkAnswer = (uAnswer, cAnswer) => {
         if(uAnswer === cAnswer) {
@@ -42,13 +43,13 @@ const Game = props => {
         <div className="wrapper">
             <div className="game-container">
                 <Link to="/dashboard">
-                    <img src='https://i.imgur.com/liO8kXc.png' alt =''/>
+                    <img src='https://i.imgur.com/liO8kXc.png' className="dashboard-icon" alt =''/>
                 </Link>
                 <div className="category-title">
                     <h1>Category</h1>
                     <p className="category">Presidential Candidates</p>
                 </div>
-                <Tweet />
+                <Tweet tweet={props.tweet} />
                 <Tweeters
                     tweeters={props.tweeters}
                     pickAnswer={pickAnswer}
