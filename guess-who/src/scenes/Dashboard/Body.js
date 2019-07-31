@@ -5,8 +5,8 @@ import { Link } from 'react-router-dom';
 function Body(){
     return (
         <div className='body'>
-            <h3>Pick a category!</h3>
-            <Link to="/game">
+            <div className='title'>Pick a category!</div>
+            <Link to="/game" style={{textDecoration: 'none'}}>
                 <button className='blueButton'>Presidential Candidates</button>
             </Link>
             <button className='greenButton'>
