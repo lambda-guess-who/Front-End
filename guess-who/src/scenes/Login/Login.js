@@ -4,6 +4,8 @@ import { Link } from 'react-router-dom';
 
 import { login } from '../../actions';
 
+import './styles.scss';
+
 const Login = props => {
     
     const [formState, setFormState] = useState({
@@ -34,9 +36,13 @@ const Login = props => {
     return (
         <form onSubmit={submit}>
             {props.welcomeMesage && <h3>{`${props.welcomeMesage}!`}</h3>}
-            <h1>Login</h1>
-            <label htmlFor="username">Username:</label>
-            <input
+            <div className='loginHeader'>
+               <h1>Login</h1> 
+               <img src ='https://iconsplace.com/wp-content/uploads/_icons/ffffff/256/png/twitter-icon-18-256.png' alt=''/>
+            </div>
+            <div className='username'> {/*Added classes for styling purposes*/}
+                <label htmlFor="username">Username:</label>
+                <input
                 type="username"
                 id="username"
                 name="username"
@@ -45,9 +51,11 @@ const Login = props => {
                 onChange={handleChanges}
                 autoComplete="off"
                 required
-            />
-            <label htmlFor="password">Password:</label>
-            <input
+                />  
+            </div>
+            <div className='password'>
+                <label htmlFor="password">Password:</label>
+                <input
                 type="password"
                 id="password"
                 name="password"
@@ -56,11 +64,15 @@ const Login = props => {
                 onChange={handleChanges}
                 autoComplete="off"
                 required
-            />
-            <button>Login</button>
-            <span>Don't have an account?</span>
-            <Link to="/signup">Signup Here</Link>
-            {props.error && <h3>{props.error}</h3>}
+                />  
+            </div>
+            <div className ='loginFooter'>
+                <button>Login</button> 
+                <span>Don't have an account?
+                    <Link to="/signup">Signup Here</Link>
+                    {props.error && <h3>{props.error}</h3>}   
+                </span>
+            </div>
         </form>
     );
 };

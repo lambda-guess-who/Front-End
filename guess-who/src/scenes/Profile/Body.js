@@ -20,6 +20,7 @@ const Body = props => {
             <p>Instantly unlock 10 new levels when you invite a friend</p>
         </div>
     )
+    
 };
 
 export default Body;

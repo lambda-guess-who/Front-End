@@ -1,0 +1,90 @@
+@import '../../scss/mixins.scss';
+
+.loginHeader{
+    display: flex;
+    justify-content: flex-start;
+    align-items: baseline;
+    padding: 10px;
+
+    h1{
+        margin: 10px 10px;
+    }
+
+    img{
+        width: 30px;
+        height: 30px;
+        animation-name: dance;
+        animation-duration: 2s;
+        animation-iteration-count: infinite;
+
+        @keyframes dance {
+            0% {transform: rotate(0deg)}
+            20% {transform: rotate(-20deg)}
+            40% {transform: rotate(0deg)}
+            60% {transform: rotate(30deg)}
+            100% {transform: rotate(0deg)}
+        }
+    }
+}
+
+.username{
+    font-family: arial;
+    display: flex;
+    justify-content: flex-start;
+    margin: 10px;
+
+    label {
+        padding: 5px 5px;
+    }
+
+    #username{
+        
+        width: 60%;
+    }
+}
+.password{
+    font-family: arial;
+    display: flex;
+    justify-content: flex-start;
+    margin: 10px;
+
+    label {
+        padding: 5px 7px;
+    }
+
+    #password{
+        
+        width: 60%;
+    }
+}
+
+.loginFooter{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+    padding: 10px;
+
+    button{
+        @include buttons;
+        border: 2px solid white;
+        background-color: transparent;
+        color: white;
+        padding: 5px;
+        justify-content: center;
+        width: 50%;
+        margin-left: 26%;
+        margin-bottom: 20%;
+    }
+
+    span {
+        display: flex;
+        flex-direction: column;
+        color: white;
+        height: 25rem;
+
+        a{
+            color: white;
+        }
+    }
+}
