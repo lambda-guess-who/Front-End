@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 
 import { getTwitter, postScore } from '../../actions';
 
-import './Game.css';
+import './Game.scss';
 import Tweet from './Tweet/Tweet.js';
 import Tweeters from './Tweeters/Tweeters.js'
 
@@ -42,7 +42,7 @@ const Game = props => {
         <div className="wrapper">
             <div className="game-container">
                 <Link to="/dashboard">
-                    <img src='https://i.imgur.com/liO8kXc.png' alt =''/>
+                    <img src='https://i.imgur.com/liO8kXc.png' className="dashboard-icon" alt =''/>
                 </Link>
                 <div className="category-title">
                     <h1>Category</h1>
