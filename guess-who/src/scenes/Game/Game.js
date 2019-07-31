@@ -11,12 +11,13 @@ const Game = props => {
 
     const [score, setScore] = useState(0);
     const [userAnswer, setUserAnswer] = useState('');
+    // let username = props.username;
 
     const fetchTwitter = () => {
         props.getTwitter();
     }
     useEffect(() => {
-        fetchTwitter()
+        fetchTwitter();
     }, [props.tweet])
 
     const checkAnswer = (uAnswer, cAnswer) => {
@@ -26,13 +27,15 @@ const Game = props => {
         }
     }
 
-    const pickAnswer = () => {
-
+    const pickAnswer = tweeter => {
+        setUserAnswer(tweeter)
     }
 
-    const sendScore = () => {
-        
+    const sendScore = (username, endScore) => {
+        props.postScore({ username, endScore });
     }
+
+    // sendScore(props.username, props.highScore)
 
     return (
         <div className="wrapper">
@@ -42,12 +45,15 @@ const Game = props => {
                     <p className="category">Presidential Candidates</p>
                 </div>
                 <Tweet />
-                <Tweeters />
+                <Tweeters tweeters={props.tweeters} pickAnswer={pickAnswer} />
                 <div className="twitter-btn">
-                    <button onClick={() => checkAnswer(userAnswer, props.correctAnswer)}>Check answer</button>
+                    {userAnswer
+                        ? <button onClick={() => checkAnswer(userAnswer, props.correctAnswer)}>Check Answer</button>
+                        : <button onClick={() => fetchTwitter()}>Next Tweet</button>
+                    }
                 </div>
-                <p>{score}</p>
-                <p>{props.highScore}</p>
+                <p>Current Score: {score}</p>
+                <p>High Score: {props.highScore}</p>
             </div>
         </div>
     )
@@ -59,7 +65,8 @@ const mapStateToProps = state => {
         tweet: state.tweet,
         tweeters: state.tweeters,
         correctAnswer: state.answer,
-        highScore: state.highScore
+        highScore: state.highScore,
+        username: state.username
     }
 }
 

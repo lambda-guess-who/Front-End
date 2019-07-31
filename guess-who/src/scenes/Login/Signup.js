@@ -56,6 +56,7 @@ const Signup = props => {
                 required
             />
             <button>Signup</button>
+            {props.error && <p>{props.error}</p>}
         </form>
     );
 };

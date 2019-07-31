@@ -15,12 +15,12 @@ export const signup = user => dispatch => {
     axiosWithAuth()
         .post(SIGNUP_ENDPOINT, user)
         .then(res => {
-            console.log("res: ", res)
+            // console.log("res: ", res)
             dispatch({ type: SIGNUP_SUCCESS, payload: res.data })
         })
         .catch(err => {
             console.log("err: ",err)
-            // dispatch({ type: SIGNUP_FAILURE, payload: err })
+            dispatch({ type: SIGNUP_FAILURE, payload: err })
         })
 }
 
@@ -34,7 +34,7 @@ export const login = user => dispatch => {
     return axiosWithAuth()
         .post(LOGIN_ENDPOINT, user)
         .then(res => {
-            console.log("res: ", res)
+            // console.log("res: ", res)
             localStorage.setItem("username", user.username)
             dispatch({ type: LOGIN_SUCCESS, payload: res.data.token })
             return true
@@ -70,9 +70,10 @@ export const POST_SCORE_FAILURE = 'POST_SCORE_FAILURE';
 export const postScore = usersInfo => dispatch => {
     dispatch({ type: POST_SCORE_START })
     axiosWithAuth()
-        .post(SCORE_ENDPOINT, )
+        .post(SCORE_ENDPOINT, usersInfo)
         .then(res => {
             console.log(res);
+            // dispatch({ type: POST_SCORE_SUCCESS, payload: res.data });
         })
         .catch(err => {
             console.log(err);
