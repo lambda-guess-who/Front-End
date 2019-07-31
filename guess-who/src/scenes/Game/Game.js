@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
 
 import { getTwitter, postScore } from '../../actions';
 
@@ -40,6 +41,9 @@ const Game = props => {
     return (
         <div className="wrapper">
             <div className="game-container">
+                <Link to="/dashboard">
+                    <img src='https://i.imgur.com/liO8kXc.png' alt =''/>
+                </Link>
                 <div className="category-title">
                     <h1>Category</h1>
                     <p className="category">Presidential Candidates</p>

@@ -3,14 +3,14 @@ import React from 'react';
 import './styles.scss';
 
 
-function Body(){
+const Body = props => {
     return (
         <div className='body'>
             <a><img src='https://i.imgur.com/AWjw3jH.png' alt='' /></a>
-            <h2>userName</h2>
+            <h2>{props.username}</h2>
             <p>@userTwitterHandle</p>
             <h3>0</h3>
-            <h4>HighScore</h4>
+            <h4>{props.highScore}</h4>
             <button>
             <img src='https://i.imgur.com/KDnz4zT.png' alt='' />
             Invite Friends
