@@ -1,11 +1,10 @@
 import React from 'react';
 
-const Tweet = () => {
+const Tweet = props => {
     return (
         <div className="tweet-container">
             <div className="tweet">
-                This is where the tweet goes. Users will see a Tweet inside of this container,
-                they will choose from the people below who they think wrote the Tweet.
+                {props.tweet}
             </div>
             <div className="tweet-date">
                 <p>04:29 AM - Jan 04, 2019</p>

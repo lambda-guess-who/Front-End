@@ -6,7 +6,7 @@ import { axiosWithAuth } from '../axiosAuth';
 const LOGIN_ENDPOINT = 'https://lambda-guess-who.herokuapp.com/api/auth/login';
 const SIGNUP_ENDPOINT = 'https://lambda-guess-who.herokuapp.com/api/auth/register';
 const TWITTER_ENDPOINT = 'https://lambda-guess-who.herokuapp.com/api/question';
-const SCORE_ENDPOINT = '';
+const SCORE_ENDPOINT = 'https://lambda-guess-who.herokuapp.com/api/User/highscore/:id';
 
 export const SIGNUP_START = "SIGNUP_START"; 
 export const SIGNUP_SUCCESS = "SIGNUP_SUCCESS";
@@ -58,7 +58,7 @@ export const getTwitter = () => dispatch => {
         .get(TWITTER_ENDPOINT)
         .then(res => {
             console.log(res);
-            // dispatch({ type: GET_TWITTER_SUCCESS, payload: res.data}
+            dispatch({ type: GET_TWITTER_SUCCESS, payload: res.data})
         })
         .catch(err => {
             console.log(err);

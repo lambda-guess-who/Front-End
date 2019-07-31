@@ -20,7 +20,7 @@ const Game = props => {
     }
     useEffect(() => {
         fetchTwitter();
-    }, [props.tweet])
+    }, [])
 
     const checkAnswer = (uAnswer, cAnswer) => {
         if(uAnswer === cAnswer) {
@@ -49,7 +49,7 @@ const Game = props => {
                     <h1>Category</h1>
                     <p className="category">Presidential Candidates</p>
                 </div>
-                <Tweet />
+                <Tweet tweet={props.tweet} />
                 <Tweeters
                     tweeters={props.tweeters}
                     pickAnswer={pickAnswer}
