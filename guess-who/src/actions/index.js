@@ -66,6 +66,12 @@ export const getTwitter = () => dispatch => {
         })
 }
 
+export const HIGH_SCORE = 'HIGH_SCORE';
+
+export const setNewHighScore = newHighScore => dispatch => {
+    dispatch({ type: HIGH_SCORE, payload: newHighScore })
+}
+
 export const POST_SCORE_START = 'POST_SCORE_START';
 export const POST_SCORE_SUCCESS = 'POST_SCORE_SUCCESS';
 export const POST_SCORE_FAILURE = 'POST_SCORE_FAILURE';

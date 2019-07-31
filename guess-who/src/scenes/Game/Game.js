@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 
-import { getTwitter, postScore } from '../../actions';
+import { getTwitter, postScore, setNewHighScore } from '../../actions';
 
 import './Game.scss';
 import Tweet from './Tweet/Tweet.js';
@@ -12,7 +12,7 @@ const Game = props => {
 
     const [score, setScore] = useState(0);
     const [userAnswer, setUserAnswer] = useState('');
-    // const [count, setCount]
+   
     // const [answerStatus, setAnswerStatus] = useState(false)
 
     const fetchTwitter = () => {
@@ -26,11 +26,22 @@ const Game = props => {
         if(uAnswer === cAnswer) {
             console.log("ta-daaa!");
             setScore(score + 1);
+        } else {
+            if(score > props.highScore) {
+                props.setNewHighScore(score)
+                setScore(0);
+                props.history.push("/tryagain")
+            } else {
+                setScore(0);
+                props.history.push("/tryagain")
+            }
         }
+        setUserAnswer('');
     }
 
     const pickAnswer = tweeter => {
-        setUserAnswer(tweeter)
+        setUserAnswer(tweeter.handle)
+        console.log("tweeter.handle: ", tweeter.handle);
     }
 
     const sendScore = (username, endScore) => {
@@ -38,6 +49,8 @@ const Game = props => {
     }
 
     // sendScore(props.username, props.highScore)
+
+    console.log("props.tweeters: ", props.tweeters);
 
     return (
         <div className="wrapper">
@@ -72,7 +85,7 @@ const mapStateToProps = state => {
         ...state,
         tweet: state.tweet,
         tweeters: state.tweeters,
-        correctAnswer: state.answer,
+        correctAnswer: state.answer.screen_name,
         highScore: state.highScore,
         username: state.username
     }
@@ -80,5 +93,5 @@ const mapStateToProps = state => {
 
 export default connect(
     mapStateToProps,
-    { getTwitter, postScore }
+    { getTwitter, postScore, setNewHighScore }
 )(Game);
