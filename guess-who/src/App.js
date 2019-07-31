@@ -7,6 +7,7 @@ import Signup from './scenes/Login/Signup';
 import Dashboard from './scenes/Dashboard/Dashboard';
 import Settings from './scenes/Settings/Settings';
 import Game from './scenes/Game/Game';
+import TryAgain from './scenes/Game/TryAgain';
 import Profile from './scenes/Profile/Profile';
 
 import './App.scss';
@@ -22,6 +23,7 @@ function App() {
       <PrivateRoute path="/dashboard" component={Dashboard} />
       <PrivateRoute path="/settings" component={Settings} />
       <PrivateRoute path="/game" component={Game} />
+      <PrivateRoute path="/tryagain" component={TryAgain} />
     </div>
   );
 }
