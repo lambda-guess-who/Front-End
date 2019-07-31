@@ -71,8 +71,8 @@ export const reducer = (state = initialState, action) => {
                 ...state,
                 gettingTwitter: false,
                 error: '',
-                tweet: action.payload.tweet,
-                tweeters: action.payload.tweeters,
+                tweet: action.payload.question,
+                tweeters: action.payload.candidates,
                 answer: action.payload.answer
             }
         case actions.GET_TWITTER_FAILURE:
