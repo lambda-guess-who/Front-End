@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { connect } from 'react-redux';
 
-import { getTwitter } from '../../actions';
+import { getTwitter, postScore } from '../../actions';
 
 import './Game.css';
 import Tweet from './Tweet/Tweet.js';
@@ -19,14 +19,19 @@ const Game = props => {
         fetchTwitter()
     }, [props.tweet])
 
-    const checkAnswer = (userAnswer, correctAnswer) => {
-        if(userAnswer === correctAnswer) {
+    const checkAnswer = (uAnswer, cAnswer) => {
+        if(uAnswer === cAnswer) {
             console.log("something");
+            setScore(score + 1);
         }
     }
 
     const pickAnswer = () => {
 
+    }
+
+    const sendScore = () => {
+        
     }
 
     return (
@@ -39,9 +44,10 @@ const Game = props => {
                 <Tweet />
                 <Tweeters />
                 <div className="twitter-btn">
-                    <button onClick={() => checkAnswer()}>Check answer</button>
+                    <button onClick={() => checkAnswer(userAnswer, props.correctAnswer)}>Check answer</button>
                 </div>
                 <p>{score}</p>
+                <p>{props.highScore}</p>
             </div>
         </div>
     )
@@ -52,11 +58,12 @@ const mapStateToProps = state => {
         ...state,
         tweet: state.tweet,
         tweeters: state.tweeters,
-        correctAnswer: state.answer
+        correctAnswer: state.answer,
+        highScore: state.highScore
     }
 }
 
 export default connect(
     mapStateToProps,
-    { getTwitter }
+    { getTwitter, postScore }
 )(Game);

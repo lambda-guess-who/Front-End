@@ -10,7 +10,8 @@ export const initialState = {
     loggingIn: false,
     gettingTwitter: false,
     error: '',
-    welcome: ''
+    welcome: '',
+    highScore: 0
 };
 
 export const reducer = (state = initialState, action) => {

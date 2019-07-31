@@ -14,7 +14,6 @@ const Dashboard = props => {
     return (
         <div className='dashboard'>
             {props.username && <p>{props.username}</p>}
-            {/* {props.welcomeMesage && <h3>{props.welcomeMesage}</h3>} */}
             <Header />
             <Body /> 
             <Footer />
