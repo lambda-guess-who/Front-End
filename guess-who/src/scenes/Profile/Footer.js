@@ -6,8 +6,8 @@ import './styles.scss';
 function Footer(){
     return (
         <div className='footer'>
-          <button className='logOut'>
-            <img src='https://i.imgur.com/n5Wcr24.png' alt='icon' />
+          <button>
+            <img src='https://i.imgur.com/n5Wcr24.png' alt='' />
             <h2>Log Out</h2>    
         </button>  
         </div>
