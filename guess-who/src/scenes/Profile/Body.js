@@ -9,8 +9,7 @@ const Body = props => {
             <a><img src='https://i.imgur.com/AWjw3jH.png' alt='' /></a>
             <h2>{props.username}</h2>
             <p>@userTwitterHandle</p>
-            <h3>0</h3>
-            <h4>{props.highScore}</h4>
+            <h3>High Score: {props.highScore}</h3>
             <button>
             <img src='https://i.imgur.com/KDnz4zT.png' alt='' />
             Invite Friends

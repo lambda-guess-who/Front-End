@@ -1,5 +1,8 @@
 import { axiosWithAuth } from '../axiosAuth';
 
+// const RICHMOND_GAME_ENDPOINT = 'https://guessthrowawaymvp.somethingtechie.com/api/quickgame/catid/count';
+// const RICHMOND_CATEGORIES_ENDPOINT = 'https://guessthrowawaymvp.somethingtechie.com/api/categories';
+
 const LOGIN_ENDPOINT = 'https://lambda-guess-who.herokuapp.com/api/auth/login';
 const SIGNUP_ENDPOINT = 'https://lambda-guess-who.herokuapp.com/api/auth/register';
 const TWITTER_ENDPOINT = 'https://lambda-guess-who.herokuapp.com/api/question';

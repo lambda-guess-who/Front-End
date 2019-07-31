@@ -12,6 +12,7 @@ const Game = props => {
 
     const [score, setScore] = useState(0);
     const [userAnswer, setUserAnswer] = useState('');
+    // const [count, setCount]
     // const [answerStatus, setAnswerStatus] = useState(false)
 
     const fetchTwitter = () => {
