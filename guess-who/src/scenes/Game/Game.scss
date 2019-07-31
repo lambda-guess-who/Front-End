@@ -1,0 +1,127 @@
+@import '../../scss/mixins.scss';
+@import '../../scss/variables.scss';
+
+.wrapper {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    height: 100vh;
+    .game-container {
+        display: flex;
+        flex-direction: column;
+        background-repeat: no-repeat;
+        .dashboard-icon {
+            display: flex;
+            justify-content: flex-start;
+            height: 25px;
+            width: 25px;
+            margin-top: 15px;
+        }
+        h1 {
+            text-align: center;
+            margin: 0;
+            padding: 5px 0;
+            font-size: 1.5rem;
+        }
+        .category {
+            text-align: center;
+            margin: 0;
+        }
+        .twitter-btn {
+            display: flex;
+            justify-content: center;
+            button {
+                height: 25px;
+                width: 150px;
+                border-radius: 15px;
+                background: #fff;
+                color: $twitterBlue;
+            }
+        }
+    }
+    
+}
+
+/* Tweet------------------------------------------------ */
+
+.tweet-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin: 15px 0;
+    padding: 15px;
+    border-radius: 15px;
+    box-shadow: 5px 5px 5px $blueBoxShadow;
+    background-color: #fff;
+    color: #000;
+    height: 150px;
+    width: 300px;
+    .tweet-date {
+        position: relative;
+        top: 15px;
+        align-items: flex-end;
+        font-size: 10px;
+    }
+    .tweet-stats {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        color: $twitterBlue;
+        font-size: 14px;
+        font-weight: bold;
+        p {
+            margin: 0;
+        }
+        .fa-retweet, .fa-comment, .fa-heart {
+            color: $greyTwitterIcon;
+            margin-right: 5px;
+        }
+    }
+}
+
+/* Tweeters---------------------------------------------- */
+
+.tweeters-container {
+    margin-bottom: 30px;
+    .tweeter-title {
+        padding-left: 15px;
+        font-weight: bold;
+        .fa-twitter {
+            font-size: 30px;
+            margin-right: 10px;
+        }
+    }
+}
+
+.tweeter {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 300px;
+    height: 50px;
+    margin-top: 20px;
+    padding: 5px;
+    background-color: #fff;
+    color: #000;
+    border-radius: 50px;
+    .profile-photo {
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+    }
+    .tweeter-info {
+        display: flex;
+        flex-direction: column;
+        padding: 10px 0 0 15px;
+        p {
+            margin: 0;
+        }
+        .tweet-name {
+            font-weight: bold;
+            font-size: 14px;
+        }
+        .tweet-handle {
+            font-size: 12px;
+        }
+    }
+}
