@@ -18,7 +18,6 @@ const Login = props => {
         })
     }
 
-
     const submit = e => {
         e.preventDefault();
         props.login(formState).then(isLoggedIn => {
