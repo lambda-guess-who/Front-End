@@ -134,3 +134,27 @@
     transform: scale(1.075);
     border: 3px solid $borderBlue;
 }
+
+/* Try Again---------------------------------------------- */
+
+.tryAgain{
+    
+    h1{
+        text-align: center;
+    }
+
+    .tryAgainbuttons{
+        display: flex;
+        flex-direction: row-reverse;
+        justify-content: space-evenly;
+        
+        a{
+            @include buttons;
+            border: 1px solid white;
+            padding: 4px 8px;
+            color: white;
+            text-decoration: none;
+        }
+    }
+
+}

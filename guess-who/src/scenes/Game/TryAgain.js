@@ -14,10 +14,12 @@ const TryAgain = props => {
     }, []);
 
     return (
-        <div>
-            <h1>Darn!</h1>
-            <Link to="/game">Play Again</Link>
-            <Link to="/dashboard">Back to Dashboard</Link>
+        <div className ='tryAgain'>
+            <h1>Game Over!</h1>
+            <div className='tryAgainbuttons'>
+                <Link to="/game">Play Again</Link>   
+                <Link to="/dashboard">Back to Dashboard</Link> 
+            </div>
             <Tweet userObject={prevUserObj} tweet={prevTweet} />
         </div>
     );
