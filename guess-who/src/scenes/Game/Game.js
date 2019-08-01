@@ -14,12 +14,13 @@ const Game = props => {
     const [score, setScore] = useState(0);
     const [userAnswer, setUserAnswer] = useState('');
     const [canAnswer, setCanAnswer] = useState(true);
-    let isTrue = false;
+    const [isTrue, setIsTrue] = useState(false);
+    // let isTrue = false;
 
     const fetchTwitter = () => {
         props.getTwitter();
         setCanAnswer(true);
-
+        setIsTrue(false);
     }
     useEffect(() => {
         fetchTwitter();
@@ -32,7 +33,8 @@ const Game = props => {
         if(uAnswer === cAnswer) {
             setScore(score + 1);
             console.log("isTrue B: ", isTrue);
-            isTrue = true;
+            // isTrue = true;
+            setIsTrue(true);
             console.log("isTrue A", isTrue);
         } else {
             localStorage.setItem("prevTweet", JSON.stringify(props.tweet))       
@@ -80,6 +82,7 @@ const Game = props => {
                     pickAnswer={pickAnswer}
                     userAnswer={userAnswer}
                     isTrue={isTrue}
+                    correctAnswer={props.correctAnswer}
                 />
                 <div className="twitter-btn">
                     {canAnswer
