@@ -1,9 +1,6 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 const Tweeters = props => {
-    // let incorrectAnswer = ,
-    //     correctAnswer = ;
-
     return (
         <div className="tweeters-container">
             <p className="tweeter-title">
@@ -13,7 +10,11 @@ const Tweeters = props => {
             <div className="tweeters">
                 {props.tweeters.map((eachTweeter, i) => {
                     return (
-                        <div key={i} className="tweeter" onClick={() => props.pickAnswer(eachTweeter)}>
+                        <div key={i}
+                            className={props.userAnswer===eachTweeter.handle ? "tweeter selected" : "tweeter"}
+                            onClick={() => {
+                                props.pickAnswer(eachTweeter)
+                            }}>
                             <img src={eachTweeter.picture} className="profile-photo" alt={eachTweeter.name} />
                             <div className="tweeter-info">
                                 <p className="tweet-name">{eachTweeter.name}</p>

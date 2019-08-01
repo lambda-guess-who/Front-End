@@ -3,6 +3,7 @@
 [build]
   base = "guess-who/"
   publish = "guess-who/build/"
+  command = "npm run build"
 
 # A basic redirect rule
 [[redirects]]

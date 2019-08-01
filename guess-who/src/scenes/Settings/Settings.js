@@ -6,6 +6,7 @@ import "../../index.scss";
 import "./settings.scss";
 import { Icon } from '@material-ui/core';
 import SettingsSwitches from "./SettingsSwitches";
+import './Twitter_Social_Icon_Square_Color.png';
 
 
 const Settings = props => {   
@@ -25,7 +26,7 @@ const Settings = props => {
                 <Icon>attach_file</Icon> User Agreement
             </button>
             <button className="buttons">
-                <img src="Twitter_Social_Icon_Square_Color.png" alt=""/> Contact Us
+                <img src="./Twitter_Social_Icon_Square_Color.png" alt=""/> Contact Us
                 </button>
         </div>
     );

@@ -3,12 +3,14 @@ import * as actions from '../actions';
 export const initialState = {
     username: '',
     token: '',
+    userId: '',
     tweet: '',
     tweeters: [],
     answer: {},
     signingUp: false,
     loggingIn: false,
     gettingTwitter: false,
+    postingScore: false,
     error: '',
     welcome: '',
     highScore: 0
@@ -49,6 +51,7 @@ export const reducer = (state = initialState, action) => {
                 loggingIn: false,
                 error: '',
                 token: localStorage.setItem("token", action.payload),
+                // token: action.payload,
                 username: localStorage.getItem("username")                
             }
         case actions.LOGIN_FAILURE:
@@ -85,6 +88,30 @@ export const reducer = (state = initialState, action) => {
             return {
                 ...state,
                 highScore: action.payload
+            }
+        case actions.POST_SCORE_START:
+            return {
+                ...state,
+                postingScore: true,
+                error: ''
+            }
+        case actions.POST_SCORE_SUCCESS:
+            return {
+                ...state,
+                postingScore: false,
+                error: ''
+            }
+        case actions.POST_SCORE_FAILURE:
+            return {
+                ...state,
+                postingScore: false,
+                error: action.payload
+            }
+        case actions.USER_ID:
+            console.log(action.payload);
+            return {
+                ...state,
+                userId: action.payload
             }
     }
 }
