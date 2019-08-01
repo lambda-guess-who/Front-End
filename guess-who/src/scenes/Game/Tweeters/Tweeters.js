@@ -8,10 +8,9 @@ const Tweeters = props => {
                 Who Tweeted It?!
             </p>
             <div className="tweeters">
-                {props.tweeters.map(eachTweeter => {
-                    console.log("eachTweeter: ", eachTweeter);
+                {props.tweeters.map((eachTweeter, i) => {
                     return (
-                        <div className="tweeter" onClick={() => props.pickAnswer(eachTweeter)}>
+                        <div key={i} className="tweeter" onClick={() => props.pickAnswer(eachTweeter)}>
                             <img src={eachTweeter.picture} className="profile-photo" alt={eachTweeter.name} />
                             <div className="tweeter-info">
                                 <p className="tweet-name">{eachTweeter.name}</p>
