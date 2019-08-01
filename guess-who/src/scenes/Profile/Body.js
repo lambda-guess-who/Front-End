@@ -13,7 +13,7 @@ const Body = props => {
             <h2>{props.username}</h2>
             <p>@userTwitterHandle</p>
             <div className='highScore'>
-                <img id='highScoreStar' src='https://www.searchpng.com/wp-content/uploads/2019/04/Star-PNG-715x715.png' alt="" />
+                <img id='highScoreStar' src='https://icon2.kisspng.com/20180130/zce/kisspng-trophy-scalable-vector-graphics-clip-art-vector-trophy-5a7085cf9f0e95.4147559515173237276515.jpg' alt="" />
                 <h3>High Score: {props.highScore}</h3>
             </div>
             <button>

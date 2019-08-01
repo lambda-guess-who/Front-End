@@ -142,23 +142,83 @@
 }
 /* Try Again---------------------------------------------- */
 
+.tweetheader{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.nameHandle{
+
+    h6{
+        font-size: 15px;
+        margin: 0 5px;
+    }
+
+    p{
+        margin: 0 5px;
+        font-size: 10px;
+    }
+
+}
+
+
 .tryAgain{
     
     h1{
         text-align: center;
+        font-weight: 800;
+        text-shadow: 2px 2px 3px black;
+        animation-name: dance;
+        animation-duration: 3s;
+        animation-iteration-count: infinite;
+
+        @keyframes dance {
+            0% {transform: rotate(0deg)}
+            20% {transform: rotate(-2deg)}
+            30%{transform: scale(1.1)}
+            40% {transform: rotate(0deg)}
+            60% {transform: rotate(2deg)}
+            80%{transform: scale(1.1)}
+            100% {transform: rotate(0deg)}
+        }
+
     }
 
     .tryAgainbuttons{
         display: flex;
-        flex-direction: row-reverse;
-        justify-content: space-evenly;
+        flex-direction: column-reverse;
+        margin: 10px;
         
         a{
             @include buttons;
+            display: flex;
+            justify-content: center;
             border: 1px solid white;
-            padding: 4px 8px;
+            padding: 16px 32px;
+            margin: 10px;
             color: white;
             text-decoration: none;
+            border-color: black;
+            box-shadow: 3px 3px 6px black;
+            text-shadow: 2px 2px 3px black;
+
+            &:hover{
+                transform: scale(1.075)
+            }
         }
     }
+}
+
+#tweetPic{
+    border-radius: 100%;
+}
+
+#dashboardButton{
+    background-color: #cc0000;
+}
+
+#tryAgainButton{
+    background-color: #00cc00;
 }
