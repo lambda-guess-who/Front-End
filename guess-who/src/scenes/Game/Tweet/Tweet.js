@@ -1,8 +1,6 @@
 import React from 'react';
 
 const Tweet = props => {
-    console.log(props.userObject);
-    // console.log(object);
     
     return (
         <div className="tweet-container">
