@@ -104,6 +104,10 @@
     background-color: #fff;
     color: #000;
     border-radius: 50px;
+    &:hover {
+        transform: scale(1.075);
+        cursor: pointer;
+    }
     .profile-photo {
         width: 50px;
         height: 50px;
@@ -124,4 +128,8 @@
             font-size: 12px;
         }
     }
+}
+.selected {
+    transform: scale(1.075);
+    border: 3px solid $borderBlue;
 }

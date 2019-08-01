@@ -75,6 +75,7 @@ const Game = props => {
                 <Tweeters
                     tweeters={props.tweeters}
                     pickAnswer={pickAnswer}
+                    userAnswer={userAnswer}
                 />
                 <div className="twitter-btn">
                     {canAnswer
