@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { Icon, Typography, Grid, Switch, FormGroup, withStyles } from '@material-ui/core';
+import { Icon, Grid, Switch, FormGroup, withStyles } from '@material-ui/core';
 import "./settings.scss";
 
 
