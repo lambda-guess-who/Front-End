@@ -9,7 +9,7 @@ const Body = props => {
 
     return (
         <div className='body'>
-            <img src='http://genfkd.wpengine.netdna-cdn.com/wp-content/uploads/2018/05/shutterstock_793117360-503x518.jpg' alt='' />
+            <img className='profilePicture' src='http://genfkd.wpengine.netdna-cdn.com/wp-content/uploads/2018/05/shutterstock_793117360-503x518.jpg' alt='' />
             <h2>{props.username}</h2>
             <p>@userTwitterHandle</p>
             <div className='highScore'>

@@ -3,12 +3,16 @@
     justify-content: flex-start;
     padding: 10px;
     font-family: arial;
-    align-items: baseline;
+    align-items: center;
 
     h1{
         width: 80%;
         text-align: center;
     }
+}
+
+.profilePicture{
+    border: 3px solid white;
 }
 
 .body{
@@ -20,7 +24,7 @@
         width: 150px;
         height: 150px;
         border-radius: 100%;
-        border: 3px solid white;
+        // border: 3px solid white;
     }
 
 .highScore{
