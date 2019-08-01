@@ -9,7 +9,7 @@ const Tweeters = props => {
                 Who Tweeted It?!
             </p>
             <div className="tweeters">
-                {props.tweeters.map(eachTweeter => {
+                {props.tweeters.map((eachTweeter, i) => {
                     return (
                         <div key={i}
                             className={
