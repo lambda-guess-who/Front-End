@@ -1,7 +1,7 @@
 import React from 'react';
 
 const Tweeters = props => {
-    console.log("in Tweets ", props.isTrue);
+    console.log("in Tweeters ", props.isTrue);
     return (
         <div className="tweeters-container">
             <p className="tweeter-title">
@@ -15,7 +15,7 @@ const Tweeters = props => {
                             className={
                                 props.userAnswer === eachTweeter.handle
                                 ? "tweeter selected"
-                                : props.isTrue
+                                : props.isTrue && props.correctAnswer === eachTweeter.handle
                                 ? "tweeter correct-btn"
                                 : "tweeter"
                             }
