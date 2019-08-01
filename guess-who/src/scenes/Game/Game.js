@@ -31,6 +31,8 @@ const Game = props => {
             console.log("ta-daaa!");
             setScore(score + 1);
         } else {
+            localStorage.setItem("prevTweet", JSON.stringify(props.tweet))       
+            localStorage.setItem("prevUserObj", JSON.stringify(props.correctUserObject))       
             if(score > props.highScore) {
                 props.setNewHighScore(score)
                 setScore(0);
@@ -39,26 +41,22 @@ const Game = props => {
                 setScore(0);
                 props.history.push("/tryagain")
             }
+            sendScore(props.username, props.highScore)
         }
         setCanAnswer(false)
-        console.log("canAnswer after: ", canAnswer);
         setUserAnswer('');
         }
     }
 
     const pickAnswer = tweeter => {
         setUserAnswer(tweeter.handle)
-        console.log("tweeter.handle: ", tweeter.handle);
     }
 
     const sendScore = (username, endScore) => {
         props.postScore({ username, endScore });
     }
 
-    // sendScore(props.username, props.highScore)
 
-    console.log("props.tweeters: ", props.tweeters);
-    console.log("props.location: ", props.location);
 
     if(props.location.pathname === "/tryagain") {
         return <TryAgain 
