@@ -3,12 +3,14 @@ import * as actions from '../actions';
 export const initialState = {
     username: '',
     token: '',
+    userId: '',
     tweet: '',
     tweeters: [],
     answer: {},
     signingUp: false,
     loggingIn: false,
     gettingTwitter: false,
+    postingScore: false,
     error: '',
     welcome: '',
     highScore: 0
@@ -85,6 +87,24 @@ export const reducer = (state = initialState, action) => {
             return {
                 ...state,
                 highScore: action.payload
+            }
+        case actions.POST_SCORE_START:
+            return {
+                ...state,
+                postingScore: true,
+                error: ''
+            }
+        case actions.POST_SCORE_SUCCESS:
+            return {
+                ...state,
+                postingScore: false,
+                error: ''
+            }
+        case actions.POST_SCORE_FAILURE:
+            return {
+                ...state,
+                postingScore: false,
+                error: action.payload
             }
     }
 }

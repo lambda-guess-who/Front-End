@@ -24,6 +24,9 @@ const Game = props => {
         fetchTwitter();
     }, [])
 
+    const sendScore = (id, endScore) => {
+        props.postScore( id, endScore);
+    }
     const checkAnswer = (uAnswer, cAnswer) => {
         console.log("canAnswer before: ", canAnswer);
         if(canAnswer) {   
@@ -35,13 +38,13 @@ const Game = props => {
             localStorage.setItem("prevUserObj", JSON.stringify(props.correctUserObject))       
             if(score > props.highScore) {
                 props.setNewHighScore(score)
+                sendScore("5d41ea9a9b1b4400177245d5", props.highScore)
                 setScore(0);
                 props.history.push("/tryagain")
             } else {
                 setScore(0);
                 props.history.push("/tryagain")
             }
-            sendScore(props.username, props.highScore)
         }
         setCanAnswer(false)
         setUserAnswer('');
@@ -51,11 +54,6 @@ const Game = props => {
     const pickAnswer = tweeter => {
         setUserAnswer(tweeter.handle)
     }
-
-    const sendScore = (username, endScore) => {
-        props.postScore({ username, endScore });
-    }
-
 
 
     if(props.location.pathname === "/tryagain") {

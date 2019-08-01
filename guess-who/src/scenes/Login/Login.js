@@ -86,7 +86,8 @@ const mapStateToProps = state => {
     return {
         ...state,
         error: state.error,
-        welcomeMesage: state.welcome
+        welcomeMesage: state.welcome,
+        userID: state.userID
     }
 }
 
