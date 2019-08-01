@@ -1,5 +1,9 @@
 import React, { useState, useEffect } from 'react';
+import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
+
+import { getUser } from '../../actions';
+
 import Tweet from './Tweet/Tweet';
 
 const TryAgain = props => {
@@ -11,6 +15,7 @@ const TryAgain = props => {
         setPrevTweet(localStorage.getItem("prevTweet"));
         localStorage.removeItem("prevUserObj");
         localStorage.removeItem("prevTweet");
+        props.getUser(props.userId);
     }, []);
 
     return (
@@ -25,4 +30,14 @@ const TryAgain = props => {
     );
 };
 
-export default TryAgain;
+const mapStateToProps = state => {
+    return {
+        ...state,
+        userId: state.userId
+    }
+}
+
+export default connect(
+    mapStateToProps,
+    { getUser }
+)(TryAgain);

@@ -1,6 +1,7 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
+import { getUser } from '../../actions';
 
 import "../../index.scss";
 import "./settings.scss";
@@ -10,6 +11,10 @@ import './Twitter_Social_Icon_Square_Color.png';
 
 
 const Settings = props => {   
+
+    useEffect(() => {
+        props.getUser(props.userId);
+    }, [])
 
     return (
         <div className="settings-container">
@@ -30,7 +35,6 @@ const Settings = props => {
                     <img style={{width: '20px', height: '20px'}} src="https://iconsplace.com/wp-content/uploads/_icons/ffffff/256/png/twitter-icon-18-256.png" alt=""/> Contact Us
                 </button>  
             </div>
-            
         </div>
     );
 }
@@ -38,11 +42,12 @@ const Settings = props => {
 const mapStateToProps = state => {
     return {
         ...state,
+        userId: state.userId
     }
 }
 
 export default connect(
     mapStateToProps,
-    {}
+    { getUser }
 )(Settings);
 

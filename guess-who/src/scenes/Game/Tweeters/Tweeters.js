@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 
 const Tweeters = props => {
-    
+    console.log("in Tweets ", props.isTrue);
     return (
         <div className="tweeters-container">
             <p className="tweeter-title">
@@ -12,14 +12,20 @@ const Tweeters = props => {
                 {props.tweeters.map((eachTweeter, i) => {
                     return (
                         <div key={i}
-                            className={props.userAnswer===eachTweeter.handle ? "tweeter selected" : "tweeter"}
+                            className={
+                                props.userAnswer === eachTweeter.handle
+                                ? "tweeter selected"
+                                : props.isTrue
+                                ? "tweeter correct-btn"
+                                : "tweeter"
+                            }
                             onClick={() => {
                                 props.pickAnswer(eachTweeter)
                             }}>
-                            <img src={eachTweeter.picture} className="profile-photo" alt={eachTweeter.name} />
+                            <img src={eachTweeter.id.profile_image_url_https} className="profile-photo" alt={eachTweeter.id.name} />
                             <div className="tweeter-info">
-                                <p className="tweet-name">{eachTweeter.name}</p>
-                                <p className="tweet-handle">{eachTweeter.handle}</p>
+                                <p className="tweet-name">{eachTweeter.id.name}</p>
+                                <p className="tweet-handle">{`@${eachTweeter.handle}`}</p>
                             </div>
                         </div>
                     )

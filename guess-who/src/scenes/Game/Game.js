@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 
-import { getTwitter, postScore, setNewHighScore } from '../../actions';
+import { getTwitter, postScore, setNewHighScore, getUser } from '../../actions';
 
 import './Game.scss';
 import Tweet from './Tweet/Tweet.js';
@@ -14,6 +14,7 @@ const Game = props => {
     const [score, setScore] = useState(0);
     const [userAnswer, setUserAnswer] = useState('');
     const [canAnswer, setCanAnswer] = useState(true);
+    let isTrue = false;
 
     const fetchTwitter = () => {
         props.getTwitter();
@@ -22,15 +23,17 @@ const Game = props => {
     }
     useEffect(() => {
         fetchTwitter();
+        console.log("props.userId in useEffect: ", props.userId);
+        props.getUser(props.userId);
     }, [])
 
-    // const sendScore = (id, endScore) => {
-    //     props.postScore( id, endScore);
-    // }
     const checkAnswer = (uAnswer, cAnswer) => {
         if(canAnswer) {   
         if(uAnswer === cAnswer) {
             setScore(score + 1);
+            console.log("isTrue B: ", isTrue);
+            isTrue = true;
+            console.log("isTrue A", isTrue);
         } else {
             localStorage.setItem("prevTweet", JSON.stringify(props.tweet))       
             localStorage.setItem("prevUserObj", JSON.stringify(props.correctUserObject))       
@@ -76,6 +79,7 @@ const Game = props => {
                     tweeters={props.tweeters}
                     pickAnswer={pickAnswer}
                     userAnswer={userAnswer}
+                    isTrue={isTrue}
                 />
                 <div className="twitter-btn">
                     {canAnswer
@@ -105,5 +109,5 @@ const mapStateToProps = state => {
 
 export default connect(
     mapStateToProps,
-    { getTwitter, postScore, setNewHighScore }
+    { getTwitter, postScore, setNewHighScore, getUser }
 )(Game);
