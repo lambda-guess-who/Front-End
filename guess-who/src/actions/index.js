@@ -81,7 +81,7 @@ export const POST_SCORE_FAILURE = 'POST_SCORE_FAILURE';
 export const postScore = (id, highScore) => dispatch => {
     dispatch({ type: POST_SCORE_START })
     axiosWithAuth()
-        .put(`https://lambda-guess-who.herokuapp.com/api/User/highscore/:${id}`, highScore)
+        .put(`https://lambda-guess-who.herokuapp.com/api/user/highscore/${id}`, {highscore: highScore})
         .then(res => {
             console.log(res);
             // dispatch({ type: POST_SCORE_SUCCESS, payload: res.data });
@@ -89,5 +89,21 @@ export const postScore = (id, highScore) => dispatch => {
         .catch(err => {
             console.log(err);
             // dispatch({ type: POST_SCORE_FAILURE, payload: err })
+        })
+}
+
+export const GET_USER_START = 'GET_USER_START';
+export const GET_USER_SUCCESS = 'GET_USER_SUCCESS';
+export const GET_USER_FAILURE = 'GET_USER_FAILURE';
+
+export const getUser = id => dispatch => {
+    dispatch({ type: GET_USER_START })
+    axiosWithAuth()
+        .get(`https://lambda-guess-who.herokuapp.com/api/user/${id}`)
+        .then(res => {
+            console.log("getUser res: ", res);
+        })
+        .catch(err => {
+            console.log(err);
         })
 }

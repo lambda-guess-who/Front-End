@@ -6,7 +6,15 @@ const Tweet = props => {
         <div className="tweet-container">
             {props.noImage
                 ? null
-                : <img src={props.userObject.profile_image_url_https} alt="" />
+                :
+                <div className="tweetheader">
+                    <img src={props.userObject.profile_image_url_https} alt="" />
+                    <div className="nameHandle">
+                        <p>{props.userObject.name}</p>
+                        <p>{`@${props.userObject.screen_name}`}</p>
+                    </div>
+                </div> 
+                
             }
             <div className="tweet">
                 {props.tweet}
