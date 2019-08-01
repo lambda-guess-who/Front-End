@@ -108,10 +108,10 @@ export const reducer = (state = initialState, action) => {
                 error: action.payload
             }
         case actions.USER_ID:
+            console.log(action.payload);
             return {
                 ...state,
                 userId: action.payload
-                // userId: action.payload.user.id
             }
     }
 }

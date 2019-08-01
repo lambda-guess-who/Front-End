@@ -44,11 +44,12 @@ const Login = props => {
             console.log("parsedToken: ", parsedToken);
             console.log("parsedToken.user.id: ", parsedToken.user.id);
             props.getUserId(parsedToken.user.id);
-            console.log("props.userID: ", props.userID);
             props.history.push("/dashboard")
         }});
     }
-
+    
+    console.log("props.userId: ", props.userId);
+    
     return (
         <div className='loginContainer'>
             <form onSubmit={submit}>
@@ -103,7 +104,7 @@ const mapStateToProps = state => {
         ...state,
         error: state.error,
         welcomeMesage: state.welcome,
-        userID: state.userID,
+        userId: state.userId,
         token: state.token
     }
 }
