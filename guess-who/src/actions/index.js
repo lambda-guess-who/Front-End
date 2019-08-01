@@ -66,9 +66,13 @@ export const getTwitter = () => dispatch => {
 }
 
 export const HIGH_SCORE = 'HIGH_SCORE';
+export const USER_ID = 'USER_ID'
 
 export const setNewHighScore = newHighScore => dispatch => {
     dispatch({ type: HIGH_SCORE, payload: newHighScore })
+}
+export const getUserId = pToken => dispatch => {
+    dispatch({ type: USER_ID, payload: pToken })
 }
 
 export const POST_SCORE_START = 'POST_SCORE_START';

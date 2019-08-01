@@ -28,17 +28,15 @@ const Game = props => {
         props.postScore( id, endScore);
     }
     const checkAnswer = (uAnswer, cAnswer) => {
-        console.log("canAnswer before: ", canAnswer);
         if(canAnswer) {   
         if(uAnswer === cAnswer) {
-            console.log("ta-daaa!");
             setScore(score + 1);
         } else {
             localStorage.setItem("prevTweet", JSON.stringify(props.tweet))       
             localStorage.setItem("prevUserObj", JSON.stringify(props.correctUserObject))       
             if(score > props.highScore) {
                 props.setNewHighScore(score)
-                sendScore("5d41ea9a9b1b4400177245d5", props.highScore)
+                sendScore(props.id, props.highScore)
                 setScore(0);
                 props.history.push("/tryagain")
             } else {
@@ -99,7 +97,8 @@ const mapStateToProps = state => {
         correctAnswer: state.answer.screen_name,
         correctUserObject: state.answer,
         highScore: state.highScore,
-        username: state.username
+        username: state.username,
+        userId: state.userId
     }
 }
 

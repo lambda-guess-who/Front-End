@@ -3,7 +3,7 @@ import * as actions from '../actions';
 export const initialState = {
     username: '',
     token: '',
-    userId: '',
+    userId: 0,
     tweet: '',
     tweeters: [],
     answer: {},
@@ -105,6 +105,12 @@ export const reducer = (state = initialState, action) => {
                 ...state,
                 postingScore: false,
                 error: action.payload
+            }
+        case actions.USER_ID:
+            return {
+                ...state,
+                userId: action.payload
+                // userId: action.payload.user.id
             }
     }
 }
