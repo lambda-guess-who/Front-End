@@ -24,24 +24,25 @@ const Game = props => {
         fetchTwitter();
     }, [])
 
+    // const sendScore = (id, endScore) => {
+    //     props.postScore( id, endScore);
+    // }
     const checkAnswer = (uAnswer, cAnswer) => {
-        console.log("canAnswer before: ", canAnswer);
         if(canAnswer) {   
         if(uAnswer === cAnswer) {
-            console.log("ta-daaa!");
             setScore(score + 1);
         } else {
             localStorage.setItem("prevTweet", JSON.stringify(props.tweet))       
             localStorage.setItem("prevUserObj", JSON.stringify(props.correctUserObject))       
             if(score > props.highScore) {
                 props.setNewHighScore(score)
+                props.postScore(props.id, props.highScore)
                 setScore(0);
                 props.history.push("/tryagain")
             } else {
                 setScore(0);
                 props.history.push("/tryagain")
             }
-            sendScore(props.username, props.highScore)
         }
         setCanAnswer(false)
         setUserAnswer('');
@@ -51,11 +52,6 @@ const Game = props => {
     const pickAnswer = tweeter => {
         setUserAnswer(tweeter.handle)
     }
-
-    const sendScore = (username, endScore) => {
-        props.postScore({ username, endScore });
-    }
-
 
 
     if(props.location.pathname === "/tryagain") {
@@ -79,6 +75,7 @@ const Game = props => {
                 <Tweeters
                     tweeters={props.tweeters}
                     pickAnswer={pickAnswer}
+                    userAnswer={userAnswer}
                 />
                 <div className="twitter-btn">
                     {canAnswer
@@ -101,7 +98,8 @@ const mapStateToProps = state => {
         correctAnswer: state.answer.screen_name,
         correctUserObject: state.answer,
         highScore: state.highScore,
-        username: state.username
+        username: state.username,
+        userId: state.userId
     }
 }
 

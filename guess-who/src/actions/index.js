@@ -6,7 +6,6 @@ import { axiosWithAuth } from '../axiosAuth';
 const LOGIN_ENDPOINT = 'https://lambda-guess-who.herokuapp.com/api/auth/login';
 const SIGNUP_ENDPOINT = 'https://lambda-guess-who.herokuapp.com/api/auth/register';
 const TWITTER_ENDPOINT = 'https://lambda-guess-who.herokuapp.com/api/question';
-const SCORE_ENDPOINT = 'https://lambda-guess-who.herokuapp.com/api/User/highscore/:id';
 
 export const SIGNUP_START = "SIGNUP_START"; 
 export const SIGNUP_SUCCESS = "SIGNUP_SUCCESS";
@@ -67,19 +66,23 @@ export const getTwitter = () => dispatch => {
 }
 
 export const HIGH_SCORE = 'HIGH_SCORE';
+export const USER_ID = 'USER_ID'
 
 export const setNewHighScore = newHighScore => dispatch => {
     dispatch({ type: HIGH_SCORE, payload: newHighScore })
+}
+export const getUserId = pToken => dispatch => {
+    dispatch({ type: USER_ID, payload: pToken })
 }
 
 export const POST_SCORE_START = 'POST_SCORE_START';
 export const POST_SCORE_SUCCESS = 'POST_SCORE_SUCCESS';
 export const POST_SCORE_FAILURE = 'POST_SCORE_FAILURE';
 
-export const postScore = usersInfo => dispatch => {
+export const postScore = (id, highScore) => dispatch => {
     dispatch({ type: POST_SCORE_START })
     axiosWithAuth()
-        .post(SCORE_ENDPOINT, usersInfo)
+        .put(`https://lambda-guess-who.herokuapp.com/api/User/highscore/:${id}`, highScore)
         .then(res => {
             console.log(res);
             // dispatch({ type: POST_SCORE_SUCCESS, payload: res.data });

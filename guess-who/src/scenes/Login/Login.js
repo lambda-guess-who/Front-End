@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 
-import { login } from '../../actions';
+import { login, getUserId } from '../../actions';
 
 import './styles.scss';
 
@@ -29,6 +29,22 @@ const Login = props => {
                     username: "",
                     password: ""
                 })
+            let parseToken = function parseJwt (token) {
+                var base64Url = token.split('.')[1];
+                var base64 = base64Url.replace(/-/g, '+').replace(/_/g, '/');
+                var jsonPayload = decodeURIComponent(atob(base64).split('').map(function(c) {
+                    return '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2);
+                }).join(''));
+            
+                return JSON.parse(jsonPayload);
+            };
+            console.log("props.token: ", props.token);
+            console.log("local storage token: ", localStorage.getItem("token"));
+            let parsedToken = parseToken(localStorage.getItem("token"))
+            console.log("parsedToken: ", parsedToken);
+            console.log("parsedToken.user.id: ", parsedToken.user.id);
+            props.getUserId(parsedToken.user.id);
+            console.log("props.userID: ", props.userID);
             props.history.push("/dashboard")
         }});
     }
@@ -86,11 +102,13 @@ const mapStateToProps = state => {
     return {
         ...state,
         error: state.error,
-        welcomeMesage: state.welcome
+        welcomeMesage: state.welcome,
+        userID: state.userID,
+        token: state.token
     }
 }
 
 export default connect(
     mapStateToProps,
-    { login }
+    { login, getUserId }
 )(Login);
