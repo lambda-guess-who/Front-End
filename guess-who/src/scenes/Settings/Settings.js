@@ -21,12 +21,15 @@ const Settings = props => {
             <div className='soundButtons'>
                 <SettingsSwitches />  
             </div>
-            <button className="buttons">
-                <Icon>attach_file</Icon> User Agreement
-            </button>
-            <button className="buttons">
-                <img src="Twitter_Social_Icon_Square_Color.png" alt=""/> Contact Us
+            <div className='settingsButtons'>
+                <button className="buttons">
+                    <Icon>attach_file</Icon> User Agreement
                 </button>
+                <button className="buttons">
+                    <img style={{width: '20px', height: '20px'}} src="https://iconsplace.com/wp-content/uploads/_icons/ffffff/256/png/twitter-icon-18-256.png" alt=""/> Contact Us
+                </button>  
+            </div>
+            
         </div>
     );
 }

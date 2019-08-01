@@ -45,17 +45,17 @@
 /* Tweet------------------------------------------------ */
 
 .tweet-container {
-    display: flex;
+    display: inline-block;
     flex-direction: column;
     justify-content: space-between;
-    margin: 15px 0;
+    margin: 15px 15px;
     padding: 15px;
     border-radius: 15px;
     box-shadow: 5px 5px 5px $blueBoxShadow;
     background-color: #fff;
     color: #000;
-    height: 150px;
-    width: 300px;
+    height: auto;
+    width: auto;
     .tweet-date {
         position: relative;
         top: 15px;
@@ -69,6 +69,7 @@
         color: $twitterBlue;
         font-size: 14px;
         font-weight: bold;
+        margin-top: 30px;
         p {
             margin: 0;
         }
