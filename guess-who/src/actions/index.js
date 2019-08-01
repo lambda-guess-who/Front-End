@@ -13,7 +13,6 @@ export const SIGNUP_FAILURE = "SIGNUP_FAILURE";
 
 export const signup = user => dispatch => {
     dispatch({ type: SIGNUP_START })
-    console.log("user: ", user);
     axiosWithAuth()
         .post(SIGNUP_ENDPOINT, user)
         .then(res => {
@@ -32,7 +31,6 @@ export const LOGIN_FAILURE = "LOGIN_FAILURE";
 
 export const login = user => dispatch => {
     dispatch({ type: LOGIN_START })
-    // console.log("user: ", user);
     return axiosWithAuth()
         .post(LOGIN_ENDPOINT, user)
         .then(res => {
@@ -72,6 +70,7 @@ export const setNewHighScore = newHighScore => dispatch => {
     dispatch({ type: HIGH_SCORE, payload: newHighScore })
 }
 export const getUserId = pToken => dispatch => {
+    console.log("action pToken: ", pToken);
     dispatch({ type: USER_ID, payload: pToken })
 }
 

@@ -36,7 +36,7 @@ const Game = props => {
             localStorage.setItem("prevUserObj", JSON.stringify(props.correctUserObject))       
             if(score > props.highScore) {
                 props.setNewHighScore(score)
-                props.postScore(props.id, props.highScore)
+                props.postScore(props.userId, props.highScore)
                 setScore(0);
                 props.history.push("/tryagain")
             } else {
