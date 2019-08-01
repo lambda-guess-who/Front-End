@@ -43,7 +43,10 @@ const Login = props => {
             let parsedToken = parseToken(localStorage.getItem("token"))
             console.log("parsedToken: ", parsedToken);
             console.log("parsedToken.user.id: ", parsedToken.user.id);
-            props.getUserId(parsedToken.user.id);
+            let pTokenId = parsedToken.user.id
+            console.log("pTokenId: ", pTokenId);
+            // props.getUserId(parsedToken.user.id);
+            props.getUserId(pTokenId);
             console.log("props.userID: ", props.userID);
             props.history.push("/dashboard")
         }});
