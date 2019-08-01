@@ -36,7 +36,9 @@ const Login = props => {
     return (
         <div className='loginContainer'>
             <form onSubmit={submit}>
-                {props.welcomeMesage && <h3>{`${props.welcomeMesage}!`}</h3>}
+                <div className='thankYou'>
+                    {props.welcomeMesage && <h3>{`${props.welcomeMesage}!`}</h3>}
+                </div>
                 <div className='loginHeader'>
                 <h1>Login</h1> 
                 <img src ='https://iconsplace.com/wp-content/uploads/_icons/ffffff/256/png/twitter-icon-18-256.png' alt=''/>
