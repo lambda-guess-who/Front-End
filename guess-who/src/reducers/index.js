@@ -3,7 +3,7 @@ import * as actions from '../actions';
 export const initialState = {
     username: '',
     token: '',
-    userId: 0,
+    userId: '',
     tweet: '',
     tweeters: [],
     answer: {},
@@ -51,6 +51,7 @@ export const reducer = (state = initialState, action) => {
                 loggingIn: false,
                 error: '',
                 token: localStorage.setItem("token", action.payload),
+                // token: action.payload,
                 username: localStorage.getItem("username")                
             }
         case actions.LOGIN_FAILURE:

@@ -56,7 +56,7 @@ export const getTwitter = () => dispatch => {
     axiosWithAuth()
         .get(TWITTER_ENDPOINT)
         .then(res => {
-            // console.log(res);
+            console.log(res);
             dispatch({ type: GET_TWITTER_SUCCESS, payload: res.data})
         })
         .catch(err => {
@@ -82,7 +82,7 @@ export const POST_SCORE_FAILURE = 'POST_SCORE_FAILURE';
 export const postScore = (id, highScore) => dispatch => {
     dispatch({ type: POST_SCORE_START })
     axiosWithAuth()
-        .post(`https://lambda-guess-who.herokuapp.com/api/User/highscore/:${id}`, highScore)
+        .put(`https://lambda-guess-who.herokuapp.com/api/User/highscore/:${id}`, highScore)
         .then(res => {
             console.log(res);
             // dispatch({ type: POST_SCORE_SUCCESS, payload: res.data });

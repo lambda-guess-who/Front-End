@@ -24,9 +24,9 @@ const Game = props => {
         fetchTwitter();
     }, [])
 
-    const sendScore = (id, endScore) => {
-        props.postScore( id, endScore);
-    }
+    // const sendScore = (id, endScore) => {
+    //     props.postScore( id, endScore);
+    // }
     const checkAnswer = (uAnswer, cAnswer) => {
         if(canAnswer) {   
         if(uAnswer === cAnswer) {
@@ -36,7 +36,7 @@ const Game = props => {
             localStorage.setItem("prevUserObj", JSON.stringify(props.correctUserObject))       
             if(score > props.highScore) {
                 props.setNewHighScore(score)
-                sendScore(props.id, props.highScore)
+                props.postScore(props.id, props.highScore)
                 setScore(0);
                 props.history.push("/tryagain")
             } else {
