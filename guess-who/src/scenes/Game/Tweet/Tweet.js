@@ -1,8 +1,13 @@
 import React from 'react';
 
 const Tweet = props => {
+    
     return (
         <div className="tweet-container">
+            {props.noImage
+                ? null
+                : <img src={props.userObject.profile_image_url_https} alt="" />
+            }
             <div className="tweet">
                 {props.tweet}
             </div>

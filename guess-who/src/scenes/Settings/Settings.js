@@ -12,11 +12,15 @@ const Settings = props => {
 
     return (
         <div className="settings-container">
-            <Link to="/dashboard">
-                <img src='https://i.imgur.com/liO8kXc.png' alt =''/>
-            </Link>
-            <h1>Settings</h1>
-            <SettingsSwitches />
+            <div className='settingsHeader'>
+                <Link to="/dashboard">
+                    <img src='https://i.imgur.com/liO8kXc.png' alt =''/>
+                </Link>
+                <h1>Settings</h1>  
+            </div>
+            <div className='soundButtons'>
+                <SettingsSwitches />  
+            </div>
             <button className="buttons">
                 <Icon>attach_file</Icon> User Agreement
             </button>
