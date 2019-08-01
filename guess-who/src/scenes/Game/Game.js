@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 
 import { getTwitter, postScore, setNewHighScore, getUser } from '../../actions';
 
-import './Game.css';
+import './Game.scss';
 import Tweet from './Tweet/Tweet.js';
 import Tweeters from './Tweeters/Tweeters.js'
 
