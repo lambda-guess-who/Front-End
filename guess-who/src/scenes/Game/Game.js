@@ -65,7 +65,7 @@ const Game = props => {
         <div className="wrapper">
             <div className="game-container">
                 <Link to="/dashboard">
-                    <img src='https://i.imgur.com/liO8kXc.png' className="dashboard-icon" alt =''/>
+                    <img style={{width: '40px', height: '40px'}} src='https://i.imgur.com/liO8kXc.png' className="dashboard-icon" alt =''/>
                 </Link>
                 <div className="category-title">
                     <h1>Category</h1>
@@ -85,8 +85,8 @@ const Game = props => {
                         : <button onClick={() => fetchTwitter()}>Next Tweet</button>
                     }
                 </div>
-                <p>Current Score: {score}</p>
-                <p>High Score: {props.highScore}</p>
+                <p id='currentScore'>Current Score: {score}</p>
+                <p id='highScore'>High Score: {props.highScore}</p>
             </div>
         </div>
     )

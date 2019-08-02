@@ -17,6 +17,7 @@
 
     h1 {
         margin-left: 20%;
+        text-shadow: 2px 2px 3px black;
     }
 }
 
@@ -45,6 +46,7 @@ img{
     align-items: center;
     color: white;
     padding: 10px;
+    box-shadow: 2px 2px 3px black;
 }
 
 .settingsButtons{
@@ -68,4 +70,5 @@ img{
     font-weight: 800;
     color: white;
     background-color: transparent;
+    box-shadow: 2px 2px 3px black;
 }

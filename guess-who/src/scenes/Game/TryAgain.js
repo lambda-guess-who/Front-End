@@ -21,11 +21,11 @@ const TryAgain = props => {
     return (
         <div className ='tryAgain'>
             <h1>Game Over!</h1>
-            <div className='tryAgainbuttons'>
-                <Link to="/game">Play Again</Link>   
-                <Link to="/dashboard">Back to Dashboard</Link> 
-            </div>
             <Tweet userObject={prevUserObj} tweet={prevTweet} />
+            <div className='tryAgainbuttons'>
+                <Link id='tryAgainButton' to="/game">Play Again</Link>   
+                <Link id='dashboardButton' to="/dashboard"  >Back to Dashboard</Link> 
+            </div>
         </div>
     );
 };
