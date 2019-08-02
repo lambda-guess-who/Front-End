@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
-import { getUser } from '../../actions';
+// import { getUser } from '../../actions';
 
 import "../../index.scss";
 import "./settings.scss";
@@ -12,9 +12,9 @@ import './Twitter_Social_Icon_Square_Color.png';
 
 const Settings = props => {   
 
-    useEffect(() => {
-        props.getUser(props.userId);
-    }, [])
+    // useEffect(() => {
+    //     props.getUser(props.userId);
+    // }, [])
 
     return (
         <div className="settings-container">
@@ -48,6 +48,7 @@ const mapStateToProps = state => {
 
 export default connect(
     mapStateToProps,
-    { getUser }
+    // { getUser }
+    {}
 )(Settings);
 

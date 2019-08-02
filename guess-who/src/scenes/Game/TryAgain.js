@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 
-import { getUser } from '../../actions';
+// import { getUser } from '../../actions';
 
 import Tweet from './Tweet/Tweet';
 
@@ -15,7 +15,7 @@ const TryAgain = props => {
         setPrevTweet(localStorage.getItem("prevTweet"));
         localStorage.removeItem("prevUserObj");
         localStorage.removeItem("prevTweet");
-        props.getUser(props.userId);
+        // props.getUser(props.userId);
     }, []);
 
     return (
@@ -39,5 +39,5 @@ const mapStateToProps = state => {
 
 export default connect(
     mapStateToProps,
-    { getUser }
+    // { getUser }
 )(TryAgain);

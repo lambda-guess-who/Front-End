@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
-import { getUser } from '../../actions';
+// import { getUser } from '../../actions';
 
 import Header from './Header';
 import Body from './Body';
@@ -17,16 +17,17 @@ class Dashboard extends React.Component {
     //     props.getUser(props.userId);
     // }, [])
 
-    componentDidMount = () => {
-        this.props.getUser(this.props.userId);
-    }
+    // componentDidMount = () => {
+    //     this.props.getUser(this.props.userId);
+    // }
 
     render() {
         return (
             <div className='dashboard'>
                 <Header />
                 <Body /> 
-                <Footer highScore={this.props.highScore} />
+                {/* <Footer highScore={this.props.highScore} /> */}
+                <Footer />
             </div>
         )
     }
@@ -43,5 +44,6 @@ const mapStateToProps = state => {
 
 export default connect(
     mapStateToProps,
-    { getUser }
+    // { getUser }
+    {}
 )(Dashboard);

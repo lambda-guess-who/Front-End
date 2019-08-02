@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 
-import { signup } from '../../actions';
+import { signup, login } from '../../actions';
 
 const Signup = props => {
     
@@ -23,12 +23,13 @@ const Signup = props => {
     const submit = e => {
         e.preventDefault();
         props.signup(formState);
-        props.token ? props.history.push("/dashboard") : props.history.push("/")
+        // props.login(formState)
         setFormState({
             username: "",
             password: ""
         })
-
+        props.history.push("/")
+        // props.history.push("/dashboard")
     }
 
     return (
@@ -88,5 +89,5 @@ const mapStateToProps = state => {
 
 export default connect(
     mapStateToProps,
-    { signup }
+    { signup, login }
 )(Signup);

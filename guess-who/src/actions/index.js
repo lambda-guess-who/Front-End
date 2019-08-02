@@ -35,10 +35,10 @@ export const login = user => dispatch => {
     return axiosWithAuth()
         .post(LOGIN_ENDPOINT, user)
         .then(res => {
-            // console.log("res: ", res)
+            console.log("login res: ", res)
             localStorage.setItem("username", user.username)
             localStorage.setItem("token", res.data.token)
-            dispatch({ type: LOGIN_SUCCESS, payload: res.data.token })
+            // dispatch({ type: LOGIN_SUCCESS, payload: res.data.token })
             return true
         })
         .catch(err => {
@@ -112,6 +112,12 @@ export const getScore = id => dispatch => {
     dispatch({ type: GET_SCORE_START })
     axiosWithAuth()
         .get(`${HIGH_SCORE_ENDPOINT}${id}`)
+        .then(res => {
+            console.log("getScore res", res);
+        })
+        .catch(err => {
+            console.log(err);
+        })
 }
 
 // export const GET_USER_START = 'GET_USER_START';

@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 
-import { login, getUser, parseToken } from '../../actions';
+import { login, parseToken } from '../../actions';
 
 import './styles.scss';
 
@@ -29,8 +29,8 @@ const Login = props => {
                     username: "",
                     password: ""
                 })
-            let parsedToken = props.parseToken(localStorage.getItem("token"))
-            props.getUser(parsedToken)
+            // let parsedToken = props.parseToken(localStorage.getItem("token"))
+            // props.getUser(parsedToken)
 
             props.history.push("/dashboard")
         }});
@@ -93,11 +93,10 @@ const mapStateToProps = state => {
         error: state.error,
         welcomeMesage: state.welcome,
         userId: state.userId,
-        token: state.token
     }
 }
 
 export default connect(
     mapStateToProps,
-    { login, getUser, parseToken }
+    { login }
 )(Login);

@@ -2,7 +2,8 @@ import React, { useState, useEffect } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 
-import { getTwitter, postScore, setNewHighScore, getUser } from '../../actions';
+import { getTwitter, getScore, postScore, setNewHighScore } from '../../actions';
+import { parseToken } from '../../../src/actions/parseToken';
 
 import './Game.scss';
 import Tweet from './Tweet/Tweet.js';
@@ -21,14 +22,25 @@ const Game = props => {
         setCanAnswer(true);
         setIsTrue(false);
     }
+    console.log(parseToken(localStorage.getItem("token")))
+    let userID = parseToken(localStorage.getItem("token")).user.id
+    console.log("userID", userID);
+
+
     useEffect(() => {
         fetchTwitter();
-        console.log("props.userId in useEffect: ", props.userId);
-        props.getUser(props.userId);
+        // props.getScore(userID);
+        
+        // console.log("props.userId in useEffect: ", props.userId);
+        // props.getUser(props.userId);
     }, [])
 
-    const changeScore = () =>{
-        props.postScore(props.userId, score)
+
+    const pickAnswer = tweeter => {
+        setUserAnswer(tweeter.handle)
+    }
+    const changeScore = score =>{
+        props.postScore(userID, score)
     }
 
     const checkAnswer = async (uAnswer, cAnswer) => {
@@ -55,9 +67,6 @@ const Game = props => {
         }
     }
 
-    const pickAnswer = tweeter => {
-        setUserAnswer(tweeter.handle)
-    }
 
     if(props.location.pathname === "/tryagain") {
         return <TryAgain 
@@ -108,12 +117,12 @@ const mapStateToProps = state => {
         correctAnswer: state.answer.screen_name,
         correctUserObject: state.answer,
         highScore: state.highScore,
-        username: state.username,
+        // username: state.username,
         userId: state.userId
     }
 }
 
 export default connect(
     mapStateToProps,
-    { getTwitter, postScore, setNewHighScore, getUser }
+    { getTwitter, postScore, setNewHighScore, getScore }
 )(Game);
