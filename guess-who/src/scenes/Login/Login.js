@@ -49,7 +49,7 @@ const Login = props => {
     }
     
     console.log("props.userId: ", props.userId);
-    
+
     return (
         <div className='loginContainer'>
             <form onSubmit={submit}>
@@ -71,6 +71,7 @@ const Login = props => {
                     onChange={handleChanges}
                     autoComplete="off"
                     required
+                    minLength="5"
                     />  
                 </div>
                 <div className='password'>
@@ -84,6 +85,7 @@ const Login = props => {
                     onChange={handleChanges}
                     autoComplete="off"
                     required
+                    minLength="5"
                     />  
                 </div>
                 <div className ='loginFooter'>

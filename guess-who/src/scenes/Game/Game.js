@@ -15,7 +15,6 @@ const Game = props => {
     const [userAnswer, setUserAnswer] = useState('');
     const [canAnswer, setCanAnswer] = useState(true);
     const [isTrue, setIsTrue] = useState(false);
-    // let isTrue = false;
 
     const fetchTwitter = () => {
         props.getTwitter();
@@ -32,10 +31,7 @@ const Game = props => {
         if(canAnswer) {   
         if(uAnswer === cAnswer) {
             setScore(score + 1);
-            console.log("isTrue B: ", isTrue);
-            // isTrue = true;
             setIsTrue(true);
-            console.log("isTrue A", isTrue);
         } else {
             localStorage.setItem("prevTweet", JSON.stringify(props.tweet))       
             localStorage.setItem("prevUserObj", JSON.stringify(props.correctUserObject))       
@@ -57,7 +53,6 @@ const Game = props => {
     const pickAnswer = tweeter => {
         setUserAnswer(tweeter.handle)
     }
-
 
     if(props.location.pathname === "/tryagain") {
         return <TryAgain 
