@@ -1,0 +1,18 @@
+#root{
+    display: flex;
+    justify-content: center;
+    font-family: arial;
+}
+
+.switch-wrapper {
+    position: relative;
+    background-image: url('https://i.imgur.com/AiyCp96.png');
+    width: 375px;
+    height: 812px;
+    vertical-align: middle;
+  }
+   
+  .switch-wrapper > div {
+    width: 100%;
+    position: absolute;
+  }
