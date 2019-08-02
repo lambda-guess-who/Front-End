@@ -8,9 +8,9 @@ const Tweet = props => {
                 ? null
                 :
                 <div className="tweetheader">
-                    <img src={props.userObject.profile_image_url_https} alt="" />
+                    <img id = 'tweetPic' src={props.userObject.profile_image_url_https} alt="" />
                     <div className="nameHandle">
-                        <p>{props.userObject.name}</p>
+                        <h6>{props.userObject.name}</h6>
                         <p>{`@${props.userObject.screen_name}`}</p>
                     </div>
                 </div> 
