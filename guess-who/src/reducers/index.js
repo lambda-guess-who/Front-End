@@ -2,7 +2,7 @@ import * as actions from '../actions';
 
 export const initialState = {
     username: '',
-    token: '',
+    // token: '',
     userId: '',
     tweet: '',
     tweeters: [],
@@ -50,7 +50,7 @@ export const reducer = (state = initialState, action) => {
                 ...state,
                 loggingIn: false,
                 error: '',
-                token: localStorage.setItem("token", action.payload),
+                token: ,
                 // token: action.payload,
                 username: localStorage.getItem("username")                
             }
@@ -107,7 +107,7 @@ export const reducer = (state = initialState, action) => {
                 postingScore: false,
                 error: action.payload
             }
-        case actions.USER_ID:
+        case actions.PARSE_TOKEN:
             console.log(action.payload);
             return {
                 ...state,

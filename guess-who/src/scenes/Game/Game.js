@@ -27,7 +27,11 @@ const Game = props => {
         props.getUser(props.userId);
     }, [])
 
-    const checkAnswer = (uAnswer, cAnswer) => {
+    const changeScore = () =>{
+        props.postScore(props.userId, score)
+    }
+
+    const checkAnswer = async (uAnswer, cAnswer) => {
         if(canAnswer) {   
         if(uAnswer === cAnswer) {
             setScore(score + 1);
@@ -36,14 +40,15 @@ const Game = props => {
             localStorage.setItem("prevTweet", JSON.stringify(props.tweet))       
             localStorage.setItem("prevUserObj", JSON.stringify(props.correctUserObject))       
             if(score > props.highScore) {
-                props.setNewHighScore(score)
-                props.postScore(props.userId, props.highScore)
+                await props.setNewHighScore(score)
+                changeScore(score)
                 setScore(0);
                 props.history.push("/tryagain")
             } else {
                 setScore(0);
                 props.history.push("/tryagain")
             }
+           
         }
         setCanAnswer(false)
         setUserAnswer('');
