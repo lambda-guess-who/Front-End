@@ -49,6 +49,7 @@ const Signup = props => {
                         onChange={handleChanges}
                         autoComplete="off"
                         required
+                        minLength="5"
                     />
                 </div>
                 <div className='password'>
@@ -62,6 +63,7 @@ const Signup = props => {
                         onChange={handleChanges}
                         autoComplete="off"
                         required
+                        minLength="5"
                     />    
                 </div>
                 <div className ='loginFooter'>
