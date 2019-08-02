@@ -105,6 +105,11 @@
         background-color: transparent;
         align-items: center;
         box-shadow: 2px 2px 3px black;
+
+        &:hover{
+            border: 2px solid red;
+            background-color: #CC0000;
+        }
     }
 
     img{
