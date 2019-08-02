@@ -48,6 +48,8 @@
         @include buttons;
         padding: 10px;
         margin: 10px;
+        
+        
    
         img{
             padding: 0 10px 0;
@@ -59,12 +61,16 @@
         border: 3px solid $borderBlue;
         background-color: rgb(236, 234, 234);
         color: black;
-        width: 21rem;
+        width: 23rem;
         box-shadow: 3px 3px 8px;
         
         &:active {
             color: white;
             background-color: blue;
+        }
+
+        &:hover{
+            transform: scale(1);
         }
     }
     .greenButton {

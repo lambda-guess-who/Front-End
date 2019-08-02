@@ -85,8 +85,11 @@ const Game = props => {
                         : <button onClick={() => fetchTwitter()}>Next Tweet</button>
                     }
                 </div>
-                <p id='currentScore'>Current Score: {score}</p>
-                <p id='highScore'>High Score: {props.highScore}</p>
+                <div className='gameScores'>
+                    <p id='currentScore'>Current Score: {score}</p>
+                    <img id='highScoreStar' src='https://www.searchpng.com/wp-content/uploads/2019/04/Star-PNG-715x715.png' alt="" />
+                    <p id='highScore'>High Score: {props.highScore}</p>  
+                </div>
             </div>
         </div>
     )
