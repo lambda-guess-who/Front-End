@@ -13,7 +13,7 @@ export const initialState = {
     postingScore: false,
     error: '',
     welcome: '',
-    highScore: 0
+    // highScore: 0
 };
 
 export const reducer = (state = initialState, action) => {
@@ -84,11 +84,11 @@ export const reducer = (state = initialState, action) => {
                 gettingTwitter: false,
                 error: action.payload
             }
-        case actions.HIGH_SCORE:
-            return {
-                ...state,
-                highScore: action.payload
-            }
+        // case actions.HIGH_SCORE:
+        //     return {
+        //         ...state,
+        //         highScore: action.payload
+        //     }
         case actions.POST_SCORE_START:
             return {
                 ...state,
@@ -115,15 +115,15 @@ export const reducer = (state = initialState, action) => {
         //     }
         case actions.GET_SCORE_START:
             return {
-
+                ...state,
             }
         case actions.GET_SCORE_SUCCESS:
             return {
-
+                ...state,
             }
         case actions.GET_SCORE_FAILURE:
             return {
-
+                ...state,
             }
     }   
 }

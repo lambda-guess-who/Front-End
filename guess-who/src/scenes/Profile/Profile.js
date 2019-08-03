@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { connect } from 'react-redux';
 // import { getUser } from '../../actions';
 import { getScore } from '../../actions';
@@ -13,7 +13,9 @@ import './styles.scss';
 
 // const Profile = props => {
 class Profile extends React.Component {
-    
+    state = {
+        ID: ''
+    }
     // useEffect(() => {
     //     console.log("props.userId in useEffect: ", props.userId);
     //     props.getUser(props.userId);
@@ -21,9 +23,12 @@ class Profile extends React.Component {
 
     componentDidMount = () => {
         // this.props.getUser(this.props.userId);
-        console.log(parseToken(localStorage.getItem("token")))
-        let userID = parseToken(localStorage.getItem("token")).user.id
-        console.log("userID", userID);
+        // console.log(parseToken(localStorage.getItem("token")))
+        // let userID = parseToken(localStorage.getItem("token")).user.id
+        // console.log("userID", userID);
+        this.setState({
+            ID: parseToken(localStorage.getItem("token")).user.id
+        })
     }
     
     getHighScore = id => {
@@ -43,7 +48,7 @@ class Profile extends React.Component {
             <div className='profile'>
                 <Header />
                 {/* <Body username={localStorage.getItem("username")} highScore={this.props.highScore} /> */}
-                <Body username={localStorage.getItem("username")} highScore={this.getHighScore(this.userID)} />
+                <Body username={localStorage.getItem("username")} highScore={this.getHighScore(this.state.ID)} />
                 <Footer logout={this.logout} />
             </div>
         )
@@ -55,7 +60,7 @@ const mapStateToProps = state => {
         ...state,
         // username: state.username,
         // highScore: state.highScore,
-        userId: state.userId
+        // userId: state.userId
     }
 }
 

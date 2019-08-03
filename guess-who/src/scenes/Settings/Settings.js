@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 // import { getUser } from '../../actions';
@@ -11,10 +11,6 @@ import './Twitter_Social_Icon_Square_Color.png';
 
 
 const Settings = props => {   
-
-    // useEffect(() => {
-    //     props.getUser(props.userId);
-    // }, [])
 
     return (
         <div className="settings-container">

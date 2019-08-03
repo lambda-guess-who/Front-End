@@ -1,7 +1,6 @@
-import React, { useState } from 'react';
+import React from 'react';
 
 const Tweeters = props => {
-    console.log("in Tweeters ", props.isTrue);
     return (
         <div className="tweeters-container">
             <p className="tweeter-title">

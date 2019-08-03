@@ -34,13 +34,14 @@
             display: flex;
             justify-content: center;
             button {
-                height: 30px;
-                width: 160px;
+                height: 3rem;
+                width: 17.5rem;
                 border: 1px solid black;
                 border-radius: 15px;
                 background: whitesmoke;
                 color: $twitterBlue;
                 font-weight: 600;
+                font-size: 1.5rem;
                 box-shadow: 2px 2px 3px black;
             }
         }

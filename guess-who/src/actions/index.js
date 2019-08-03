@@ -17,7 +17,7 @@ export const signup = user => dispatch => {
     axiosWithAuth()
         .post(SIGNUP_ENDPOINT, user)
         .then(res => {
-            // console.log("res: ", res)
+            console.log("signup res: ", res)
             dispatch({ type: SIGNUP_SUCCESS, payload: res.data })
         })
         .catch(err => {
@@ -56,7 +56,7 @@ export const getTwitter = () => dispatch => {
     axiosWithAuth()
         .get(TWITTER_ENDPOINT)
         .then(res => {
-            console.log(res);
+            console.log("getTwitter res: ", res);
             dispatch({ type: GET_TWITTER_SUCCESS, payload: res.data})
         })
         .catch(err => {
@@ -65,12 +65,12 @@ export const getTwitter = () => dispatch => {
         })
 }
 
-export const HIGH_SCORE = 'HIGH_SCORE';
-export const PARSE_TOKEN = 'PARSE_TOKEN';
+// export const HIGH_SCORE = 'HIGH_SCORE';
+// export const PARSE_TOKEN = 'PARSE_TOKEN';
 
-export const setNewHighScore = newHighScore => dispatch => {
-    dispatch({ type: HIGH_SCORE, payload: newHighScore })
-}
+// export const setNewHighScore = newHighScore => dispatch => {
+//     dispatch({ type: HIGH_SCORE, payload: newHighScore })
+// }
 
 // export const parseToken = token => dispatch => {
 //     function parseJwt (token) {
@@ -95,7 +95,7 @@ export const postScore = (id, highScore) => dispatch => {
     axiosWithAuth()
         .put(`${HIGH_SCORE_ENDPOINT}${id}`, {highscore: highScore})
         .then(res => {
-            console.log(res);
+            console.log("postScore res: ", res);
             // dispatch({ type: POST_SCORE_SUCCESS, payload: res.data });
         })
         .catch(err => {

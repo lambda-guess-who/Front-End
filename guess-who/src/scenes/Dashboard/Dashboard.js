@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { connect } from 'react-redux';
 // import { getUser } from '../../actions';
 
@@ -12,14 +12,6 @@ import './styles.scss';
 
 // const Dashboard = props => {
 class Dashboard extends React.Component {
-
-    // useEffect(() => {
-    //     props.getUser(props.userId);
-    // }, [])
-
-    // componentDidMount = () => {
-    //     this.props.getUser(this.props.userId);
-    // }
 
     render() {
         return (
@@ -37,8 +29,8 @@ const mapStateToProps = state => {
     return {
         ...state,
         welcomeMesage: state.welcome,
-        highScore: state.highScore,
-        userId: state.userId
+        // highScore: state.highScore,
+        // userId: state.userId
     }
 }
 

@@ -2,7 +2,10 @@ import React, { useState } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 
-import { login, parseToken } from '../../actions';
+import {
+    login,
+    // parseToken
+} from '../../actions';
 
 import './styles.scss';
 
@@ -92,7 +95,7 @@ const mapStateToProps = state => {
         ...state,
         error: state.error,
         welcomeMesage: state.welcome,
-        userId: state.userId,
+        // userId: state.userId,
     }
 }
 
