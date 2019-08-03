@@ -110,6 +110,7 @@ export const GET_SCORE_FAILURE = 'GET_SCORE_FAILURE';
 
 export const getScore = id => dispatch => {
     dispatch({ type: GET_SCORE_START })
+    console.log("id in getScore:", id);
     axiosWithAuth()
         .get(`${HIGH_SCORE_ENDPOINT}${id}`)
         .then(res => {
